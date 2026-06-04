@@ -1,0 +1,48 @@
+/* ── Language Switcher ── */
+
+#lang-switcher {
+  display: flex;
+  gap: 4px;
+  margin-right: 4px;
+}
+
+.lang-btn {
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  font-family: 'Noto Sans Telugu', 'Noto Sans Devanagari', 'Inter', sans-serif;
+  line-height: 1.4;
+}
+
+.lang-btn:hover {
+  background: var(--surface2);
+  color: var(--text);
+}
+
+.lang-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* Ensure Telugu/Devanagari fonts render on the whole page when those langs active */
+[lang="te"] body {
+  font-family: 'Noto Sans Telugu', 'Inter', sans-serif;
+}
+
+[lang="sa"] body {
+  font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+}
+
+/* Mobile: stack lang switcher in hamburger menu */
+@media (max-width: 640px) {
+  #lang-switcher {
+    display: none;
+  }
+}

@@ -1,0 +1,326 @@
+/* ── Sanskrit Section ── */
+
+.sa-bio {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 780px;
+  margin-bottom: 48px;
+  border-left: 3px solid var(--accent);
+  padding-left: 20px;
+  font-style: italic;
+}
+
+.sa-block {
+  margin-bottom: 40px;
+}
+
+.sa-block-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Certifications — grouped by institution */
+.sa-inst-group {
+  margin-bottom: 28px;
+}
+
+.sa-inst-label {
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent2);
+  margin-bottom: 12px;
+  padding-left: 2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sa-inst-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.sa-inst-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.sa-cert-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.sa-cert-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(99,102,241,0.4);
+  background: var(--surface2);
+}
+
+.sa-cert-level {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 4px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.sa-cert-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+
+.sa-cert-desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Lipi (script) cards */
+.lipis-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.lipi-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  text-align: center;
+  transition: transform 0.25s, border-color 0.25s;
+  min-width: 120px;
+}
+
+.lipi-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(99,102,241,0.4);
+}
+
+.lipi-sample {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+  color: var(--text);
+  line-height: 1.4;
+  font-family: 'Noto Sans Telugu', 'Noto Sans Devanagari', serif;
+}
+
+.lipi-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Texts */
+.sa-texts-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sa-text-tag {
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.sa-text-tag:hover {
+  color: var(--text);
+  border-color: rgba(99,102,241,0.3);
+}
+
+/* ── Quote flip cards ── */
+
+.quotes-hint {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+  font-style: italic;
+}
+
+/* Pagination controls */
+/* Top bar: pagination + references side by side */
+.quotes-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.quotes-topbar .quotes-pagination {
+  margin-bottom: 0;
+}
+
+.quotes-pagination {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+/* Bottom pager gets breathing room above */
+.js-quotes-pager-bottom {
+  margin-top: 28px;
+  margin-bottom: 0;
+}
+
+.quotes-page-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.quotes-page-btn:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.quotes-page-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.quotes-page-info {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Quote grid — CSS grid, auto row height so short cards don't waste space */
+.quotes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: start; /* each card sizes to its own content, not the tallest in row */
+}
+
+.quote-card {
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.quote-inner {
+  display: grid;
+  grid-template-areas: "card";
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.quote-card:hover .quote-inner,
+.quote-card.flipped .quote-inner {
+  transform: rotateY(180deg);
+}
+
+.quote-front,
+.quote-back {
+  grid-area: card;
+  border-radius: var(--radius);
+  padding: 24px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.quote-front {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+}
+
+.quote-back {
+  background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(139,92,246,0.1));
+  border: 1px solid rgba(99,102,241,0.35);
+  transform: rotateY(180deg);
+  gap: 16px;
+  justify-content: space-between;
+}
+
+/* Script rendering on card front */
+.quote-script.devanagari {
+  font-family: 'Noto Sans Devanagari', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.quote-script.telugu {
+  font-family: 'Noto Sans Telugu', serif;
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.quote-iast {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--accent);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* Quote back */
+.quote-meaning {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.quote-source {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+  align-self: flex-end;
+}
+
+/* Touch devices — tap to flip */
+@media (hover: none) {
+  .quotes-hint::after {
+    content: " (tap to flip)";
+  }
+}
+
+@media (max-width: 860px) {
+  .quotes-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .quotes-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e ' *)",
+      "Bash(curl -s \"http://localhost:4321/js/theme.js\")",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(python3 -m http.server 4321)",
+      "Bash(echo \"PID: $!\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/)",
+      "Bash(python3 -m http.server 4322)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4322/)",
+      "Bash(node --input-type=module)",
+      "Bash(echo \"exit:$?\")",
+      "Bash(echo \"HCJP_EXIT:$?\")",
+      "Bash(echo \"exit=$?\")"
+    ]
+  }
+}

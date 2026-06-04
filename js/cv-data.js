@@ -1,0 +1,932 @@
+/**
+ * ╔══════════════════════════════════════════════════════════════════╗
+ * ║              NAGENDRA.WORK — CV CONTENT FILE                    ║
+ * ║  Edit this file to update your portfolio. No other file needed. ║
+ * ╚══════════════════════════════════════════════════════════════════╝
+ *
+ * QUICK GUIDE
+ * ───────────
+ * • Personal info         → CV.personal
+ * • Add a new job         → CV.experience[]
+ * • Add a skill           → CV.skills[]
+ * • Add an award          → CV.awards[]
+ * • Add a gallery photo   → CV.gallery[]
+ * • Add a Sanskrit quote  → CV.quotes[]
+ * • Sanskrit expertise    → CV.sanskrit
+ * • Change photo          → replace assets/images/nagendra.jpg
+ * • Change CV PDF         → replace assets/NagendraPidaparthy.pdf
+ *
+ * MULTILINGUAL
+ * ────────────
+ * Fields ending in _te = Telugu translation
+ * Fields ending in _sa = Sanskrit translation
+ * If a _te or _sa field is missing, the English version is shown.
+ */
+
+const CV = {
+
+  /* ── PERSONAL ─────────────────────────────────────────────────── */
+  personal: {
+    name:       "Nagendra Pidaparthy",
+    title:      "Senior DevOps & SRE Engineer",
+    title_te:   "సీనియర్ డెవాప్స్ & SRE ఇంజనీర్",
+    title_sa:   "वरिष्ठ देवॉप्स & SRE अभियन्ता",
+    tagline:    "21+ years building resilient cloud platforms at scale — AWS · Azure · GCP · Kubernetes · Terraform",
+    tagline_te: "21+ సంవత్సరాల అనుభవంతో AWS · Azure · GCP · Kubernetes · Terraform లో నమ్మకమైన క్లౌడ్ వ్యవస్థలు నిర్మించడం",
+    tagline_sa: "21+ वर्षाणां अनुभवेन AWS · Azure · GCP · Kubernetes · Terraform मध्ये विश्वसनीयाः क्लाउड-मञ्चाः निर्मिताः",
+    location:   "Sydney, NSW, Australia",
+    available:  false,         // set true to show the green "Available for Senior Roles" badge
+    email:      "npidaparthy@gmail.com",
+    phone:      "+61 410 410 806",
+    linkedin:   "https://www.linkedin.com/in/npidaparthy/",
+    github:     "https://github.com/npidaparthy/nagendra.work",
+    youtube:    "https://www.youtube.com/@samskruti.info.1",
+    photo:      "assets/images/nagendra.jpg",
+    cvPdf:      "assets/NagendraPidaparthy.pdf",
+  },
+
+  /* ── ABOUT ────────────────────────────────────────────────────── */
+  about: {
+    paragraphs: [
+      "Senior DevOps and Site Reliability Engineering professional with <strong>21+ years of IT experience</strong> and 11+ years specialising in cloud platforms, infrastructure automation, and production reliability engineering.",
+      "Proven expertise in designing, implementing, and operating <strong>highly available, scalable cloud platforms</strong> across AWS, Azure, and GCP — for banking, telecom, and government sectors across Australia.",
+    ],
+    paragraphs_te: [
+      "21+ సంవత్సరాల IT అనుభవం మరియు 11+ సంవత్సరాల క్లౌడ్ ప్లాట్‌ఫారమ్‌లు, మౌలిక సదుపాయాల ఆటోమేషన్ మరియు ఉత్పత్తి విశ్వసనీయత ఇంజనీరింగ్‌లో నైపుణ్యం కలిగిన <strong>సీనియర్ DevOps & SRE నిపుణుడు</strong>.",
+      "AWS, Azure మరియు GCP అంతటా బ్యాంకింగ్, టెలికామ్ మరియు ప్రభుత్వ రంగాలలో <strong>అత్యంత అందుబాటులో ఉండే, స్కేలబుల్ క్లౌడ్ ప్లాట్‌ఫారమ్‌లను</strong> రూపొందించడంలో నిరూపితమైన నైపుణ్యం.",
+    ],
+    paragraphs_sa: [
+      "21+ वर्षाणां IT-अनुभवेन सहितः, 11+ वर्षेभ्यः क्लाउड-मञ्च-निर्माणे, मूलभूत-स्वयंक्रिया-अभियान्त्रिके च <strong>वरिष्ठः DevOps & SRE विशेषज्ञः</strong>।",
+      "AWS, Azure तथा GCP मध्ये बैंकिंग, दूरसञ्चार, सरकारी क्षेत्रेषु <strong>अत्यन्त-उपलब्धाः, मापनीयाः क्लाउड-मञ्चाः</strong> निर्मितवान्।",
+    ],
+    stats: [
+      { num: "21+", label: "Years Experience", label_te: "సంవత్సరాల అనుభవం",    label_sa: "वर्षाणामनुभवः" },
+      { num: "11+", label: "Years Cloud",      label_te: "సంవత్సరాల క్లౌడ్",    label_sa: "वर्षाणां क्लाउड" },
+      { num: "9",   label: "Companies",        label_te: "కంపెనీలు",             label_sa: "संस्थाः" },
+      { num: "15+", label: "Major Clients",    label_te: "ప్రధాన క్లయింట్లు",   label_sa: "प्रमुखाः सेव्याः" },
+      { num: "700", label: "Gītā Verses by Heart", label_te: "కంఠస్థ గీతా శ్లోకాలు", label_sa: "कण्ठस्थाः गीताश्लोकाः" },
+    ],
+  },
+
+  /* ── CERTIFICATIONS (hero badges) ────────────────────────────── */
+  certifications: [
+    "AWS Solutions Architect",
+    "Certified Jenkins Engineer",
+    "Certified Scrum Master",
+    "Saṃskṛta Kovidā",
+  ],
+
+  /* ── EXPERIENCE ───────────────────────────────────────────────── */
+  /*
+   * Each job:
+   *   company    string   — company name
+   *   role       string   — job title
+   *   dates      string   — date range shown on the card
+   *   location   string   — city (optional)
+   *   current    bool     — shows green "Current" badge
+   *   logoText   string   — 2-4 char abbreviation shown in the logo circle
+   *   logoColor  string   — CSS gradient for the logo background
+   *   clients    string   — (optional) shown as italic line
+   *   tags       string[] — tech tags shown as pills
+   *   bullets    string[] — bullet points (HTML allowed)
+   */
+  experience: [
+    {
+      company:   "Coforge",
+      role:      "Senior Tech Lead",
+      dates:     "Jan 2026 – Present",
+      location:  "Sydney, NSW",
+      current:   true,
+      logoText:  "CO",
+      logoColor: "linear-gradient(135deg,#FF6B35,#F7C59F)",
+      clients:   "Clients: SITA · ASX",
+      tags:      ["Ansible","Jenkins JCasC","Kubernetes","Nexus","PostgreSQL","MinIO","Vault","ForgeRock","Longhorn"],
+      bullets: [
+        "Migrated Nexus repository from OrientDB to PostgreSQL, automating the full cutover with Ansible playbooks and eliminating a known OrientDB reliability risk",
+        "Containerised Jenkins on RHEL using Jenkins Configuration as Code (JCasC) — entire platform state version-controlled and reproducible from a single YAML",
+        "Deployed and configured ForgeRock IAM, MinIO object storage, Vault secrets management, and Longhorn persistent volumes across Kubernetes-based UAT environments",
+        "Automated SITA's on-prem Jenkins &amp; Nexus infrastructure; delivered Managed File Transfer pipelines for ASX using Terraform, Ansible, and GitLab CI",
+      ],
+    },
+    {
+      company:   "Thoughtworks",
+      role:      "Senior Consultant – DevOps & SRE",
+      dates:     "Aug 2025 – Jan 2026",
+      location:  "Sydney, NSW",
+      current:   false,
+      logoText:  "TW",
+      logoColor: "linear-gradient(135deg,#FF4785,#FF8C42)",
+      tags:      ["Disaster Recovery","SLA/SLO","RTO/RPO","Performance Testing","Platform Resilience"],
+      bullets: [
+        "Defined SLA, RTO, and RPO targets for critical government applications and translated them into an actionable enterprise disaster recovery strategy",
+        "Executed DR readiness assessments and failover testing, validating recovery procedures against agreed RTO/RPO thresholds",
+        "Delivered a performance testing strategy and remediation roadmap for high-traffic government platforms — identifying bottlenecks before they reached production",
+      ],
+    },
+    {
+      company:   "Australian Taxation Office",
+      role:      "Senior Cloud Platform Engineer",
+      dates:     "Nov 2022 – Jun 2025",
+      location:  "Sydney, NSW",
+      current:   false,
+      logoText:  "ATO",
+      logoColor: "linear-gradient(135deg,#1C3F7F,#2E6DB4)",
+      tags:      ["AWS Organizations","SCPs","Terraform","GitLab CI","Azure DevOps","Security Hub","Macie","Detective","Data Perimeter"],
+      bullets: [
+        "Designed and maintained ATO's AWS governance architecture — AWS Organizations, OU hierarchy, and Service Control Policies (SCPs) enforcing least-privilege guardrails at scale",
+        "Implemented AWS Data Perimeter controls, restricting data egress to trusted identities, networks, and resources — a critical security boundary for a federal agency",
+        "Built infrastructure-as-code pipelines using Terraform with GitLab CI and Azure DevOps, enabling consistent, auditable provisioning across accounts",
+        "Activated Security Hub, Macie, and Detective for continuous threat detection and compliance posture visibility across ATO's AWS estate",
+      ],
+    },
+    {
+      company:   "Transport NSW",
+      role:      "Senior Cloud DevOps Engineer",
+      dates:     "Feb 2022 – Oct 2022",
+      location:  "Sydney, NSW",
+      current:   false,
+      logoText:  "TfNSW",
+      logoColor: "linear-gradient(135deg,#00857E,#00AFAA)",
+      tags:      ["Sumo Logic","New Relic","Terraform","AWS Lambda","Jenkins","Cost Optimisation"],
+      bullets: [
+        "Built enterprise observability dashboards in Sumo Logic and New Relic, giving Transport NSW operations teams real-time visibility across applications and infrastructure",
+        "Codified observability stack deployment with Terraform — dashboards, alerts, and log pipelines provisioned as infrastructure, not click-ops",
+        "Developed AWS Lambda functions to automate operational workflows, integrated directly into Jenkins pipelines for event-driven execution",
+        "Identified and implemented AWS cost optimisation measures, reducing cloud spend through right-sizing, scheduling, and unused resource cleanup",
+      ],
+    },
+    {
+      company:   "NAB / MLC / IOOF",
+      role:      "Senior DevOps Engineer",
+      dates:     "Oct 2019 – Feb 2022",
+      location:  "Sydney, NSW",
+      current:   false,
+      logoText:  "NAB",
+      logoColor: "linear-gradient(135deg,#E31837,#FF6B6B)",
+      tags:      ["Jenkins","Terraform","AWS","Azure","CI/CD","High Availability"],
+      bullets: [
+        "Operated and maintained Jenkins-based CI/CD platforms processing hundreds of daily deployments across NAB, MLC, and IOOF banking applications on AWS and Azure",
+        "Implemented Terraform modules and Jenkins pipelines to automate infrastructure provisioning and environment management, replacing months of manual runbooks",
+        "Sustained large-scale non-production environment fleets, ensuring high availability and consistent release cadence for engineering teams through two major mergers",
+      ],
+    },
+    {
+      company:   "Industrie IT",
+      role:      "Senior DevOps Engineer",
+      dates:     "Feb 2016 – Oct 2019",
+      location:  "Sydney, NSW",
+      current:   false,
+      logoText:  "IIT",
+      logoColor: "linear-gradient(135deg,#6366f1,#8b5cf6)",
+      clients:   "Clients: TfNSW · IAG · NAB · PwC · Origin Energy · Aussie Home Loans · HSBC · AMP · CareGiverAsia",
+      tags:      ["AWS","Azure","GCP","Kubernetes","Terraform","Puppet","Jenkins","Bamboo","Docker","Rancher"],
+      bullets: [
+        "Delivered multi-cloud AWS, Azure, and GCP infrastructure for 10+ enterprise clients across banking, insurance, government, and energy — operating as embedded DevOps consultant across concurrent engagements",
+        "Tuned Kubernetes (AKS, VMSS) Horizontal Pod Autoscaler for pod and node-level auto-scaling, improving resilience under peak traffic without over-provisioning",
+        "Built CI/CD pipelines across Jenkins, Bamboo, Codeship, and Travis CI — standardising deployment patterns and cutting release cycle times for each client",
+        "Led Origin Energy's on-premises to AWS migration — designed target architecture, authored IaC with Terraform, and established CI/CD pipelines from scratch",
+        "Built a cost visibility dashboard (Bootstrap + Jenkins integration) surfacing real-time AWS spend per environment — giving clients actionable data to eliminate idle spend",
+      ],
+    },
+    {
+      company:   "Infosys Technologies",
+      role:      "Technology Lead",
+      dates:     "Jul 2007 – Jan 2016",
+      location:  "India & Australia",
+      current:   false,
+      logoText:  "IN",
+      logoColor: "linear-gradient(135deg,#007CC3,#00B5E2)",
+      clients:   "Clients: Westpac · NAB · AMP · Telstra",
+      tags:      ["Jenkins","Git","SonarQube","Liquibase","Control-M","Oracle","Perl","Agile"],
+      bullets: [
+        "Drove DevOps transformation across Westpac, NAB, AMP, and Telstra accounts — introduced CI/CD practices, Git branching strategies, and automated quality gates into legacy delivery teams",
+        "Eliminated error-prone manual DB releases by automating schema migrations with Liquibase, FlyWayDB, and Maven SQL Plugin through Jenkins pipelines",
+        "Led 24×7 BAU operations team — owned DR/BCP procedures, chaired Change Approval Board representation, and maintained SLA compliance across production environments",
+      ],
+    },
+    {
+      company:   "Huawei Technologies",
+      role:      "Software Engineer",
+      dates:     "Feb 2005 – Jun 2007",
+      location:  "",
+      current:   false,
+      logoText:  "HW",
+      logoColor: "linear-gradient(135deg,#CF0A2C,#FF4444)",
+      tags:      ["Java","Telecom OSS","C/C++"],
+      bullets: [
+        "Developed OSS (Operations Support System) modules for telecom provisioning and network management",
+        "Received Golden Team Award for Russian Telecom (RTC) project delivery",
+        "Reduced codebase from 8,000 to 2,000 lines using Java Reflections — recognised with an individual excellence award",
+      ],
+    },
+    {
+      company:   "CMC Ltd",
+      role:      "Test Engineer",
+      dates:     "Sep 2004 – Feb 2005",
+      location:  "Hyderabad, India",
+      current:   false,
+      logoText:  "CMC",
+      logoColor: "linear-gradient(135deg,#374151,#6B7280)",
+      clients:   "Client: TRW, UK",
+      tags:      ["Unit Testing","Manual Testing","BVA","Test Cases","IPMS","C/C++","Embedded"],
+      bullets: [
+        "Tested Electric Power Assisted Steering (EPAS) system — safety-critical automotive software for TRW, UK",
+        "Wrote stub-based unit test cases; applied Boundary Value Analysis (BVA) for input coverage",
+        "Verified Boolean, decision, and statement coverage across motor control and torque control modules",
+        "Tracked and reported defects via I.P.M.S; validated actual vs expected results against design documents",
+      ],
+    },
+  ],
+
+  /* ── SKILLS ───────────────────────────────────────────────────── */
+  /*
+   * Each category:
+   *   icon  string   — emoji for the category
+   *   name  string   — category title
+   *   tags  string[] — list of skill tags
+   */
+  skills: [
+    {
+      icon: "☁️",
+      name: "Cloud Platforms",
+      tags: ["AWS","Azure","GCP","EC2","S3","EKS","ELB","CloudFormation","CloudFront","Lambda","RDS","Route 53","ACM","Elastic Beanstalk"],
+    },
+    {
+      icon: "🏗️",
+      name: "Infrastructure as Code",
+      tags: ["Terraform","Ansible","Puppet","CloudFormation","Packer","Vagrant"],
+    },
+    {
+      icon: "🔄",
+      name: "CI/CD & Automation",
+      tags: ["Jenkins","GitLab CI","Azure DevOps","Bamboo","Travis CI","Codeship","TeamCity","Maven","Ant","SonarQube"],
+    },
+    {
+      icon: "🐳",
+      name: "Containers & Orchestration",
+      tags: ["Kubernetes (EKS, AKS)","Docker","Rancher","Helm","Longhorn","MinIO","Vault","ForgeRock"],
+    },
+    {
+      icon: "📊",
+      name: "Observability & Monitoring",
+      tags: ["New Relic","Sumo Logic","CloudWatch","Stackdriver","Prometheus","Grafana"],
+    },
+    {
+      icon: "🔐",
+      name: "Security & Governance",
+      tags: ["AWS Organizations","SCPs","Security Hub","Macie","Detective","Data Perimeter","ForgeRock"],
+    },
+    {
+      icon: "💻",
+      name: "Programming & Scripting",
+      tags: ["Python","Bash / Shell","Perl","Ruby","JavaScript","Java","C / C++","PL/SQL","Google Apps Script"],
+    },
+    {
+      icon: "🗄️",
+      name: "Databases & Tools",
+      tags: ["Oracle","PostgreSQL","MySQL","Sybase","Informix","Liquibase","FlyWayDB","Control-M","Autosys"],
+    },
+  ],
+
+  /* ── AWARDS ───────────────────────────────────────────────────── */
+  /*
+   * Each award group:
+   *   org   string   — organisation name
+   *   color string   — CSS gradient for the org badge
+   *   items string[] — list of award descriptions (emoji + text)
+   */
+  awards: [
+    {
+      org:   "NAB / MLC / IOOF",
+      color: "linear-gradient(135deg,#E31837,#FF6B6B)",
+      items: [
+        "🏆 Multiple Awards for Environment & Cost Optimisation",
+        "🏆 Outstanding Technical Contribution Award",
+      ],
+    },
+    {
+      org:   "Huawei Technologies",
+      color: "linear-gradient(135deg,#CF0A2C,#FF4444)",
+      items: [
+        "🥇 RTC (Russian Telecom) Golden Team Award",
+        "🏆 Award for Code Optimisation — 8k → 2k lines via Java Reflections",
+      ],
+    },
+    {
+      org:   "Certifications",
+      color: "linear-gradient(135deg,#6366f1,#8b5cf6)",
+      items: [
+        "☁️ AWS Certified Solutions Architect – Associate",
+        "🔧 Certified Jenkins Engineer (CJE)",
+        "🔄 Professional Scrum Master (PSM)",
+      ],
+    },
+    {
+      org:   "♔ Chess",
+      color: "linear-gradient(135deg,#4a5568,#718096)",
+      span:  true,
+      board: true,
+      items: [
+        "♛ 2nd Place — Andhra Pradesh State Open Chess Tournament (Under-12), 1994",
+        "♛ 2nd Place — Visakhapatnam District Chess Tournament, Lions Club of India, 1996",
+        "♛ 2nd Place — Mandal Chess Championship, Government Library, 2000",
+        "♛ 2nd Place — Andhra University Chess Tournament, 2001",
+        "♛ 2nd Place — Andhra University Chess Tournament, 2002",
+        "♛ 1st Place — Inter-College Chess Championship, 2004",
+      ],
+    },
+    {
+      org:   "Infosys Technologies",
+      color: "linear-gradient(135deg,#007CC3,#00B5E2)",
+      span:  true,   // renders full-width
+      items: [
+        "⭐ Most Outstanding Technical Contribution – Q3 2007-08",
+        "⭐ Most Outstanding Technical Contribution – Q1 2008-09",
+        "🏆 Best Project Annuity – NDSD Project 2007-08",
+        "🏆 Best Project Non-Annuity – OSS Transition Project 2007-08",
+        "🎖️ Individual Excellence Award – PE GIS 2008",
+        "🎖️ InfyA Encore Award – Delivery Excellence Oct 2008-09",
+        "🏅 Proactive Risk Management Award 2009-10",
+        "🏅 Westpac EoFY Performance Award 2013",
+        "🏅 Westpac EoFY Performance Award 2014",
+      ],
+    },
+  ],
+
+  /* ── PROJECTS ─────────────────────────────────────────────────── */
+  /*
+   * Personal / community projects outside of employment.
+   * Each project:
+   *   title       string   — project name
+   *   title_te    string   — Telugu name (optional)
+   *   title_sa    string   — Sanskrit name (optional)
+   *   subtitle    string   — one-line tagline
+   *   desc_en     string   — 2–3 sentence description (HTML allowed)
+   *   desc_te     string   — Telugu description (optional)
+   *   impact      string[] — key impact / stat bullets
+   *   tags        string[] — technologies used
+   *   link        string   — URL or "" to hide
+   *   linkLabel   string   — button text
+   *   icon        string   — emoji for the card header
+   */
+  projects: [
+    {
+      title:    "Bhagavad Gītā Telegram Bot",
+      title_te: "భగవద్గీత టెలిగ్రామ్ బాట్",
+      title_sa: "भगवद्गीता-टेलिग्राम्-यन्त्रम्",
+      subtitle: "Daily Gītā wisdom for thousands of students — powered by Google Apps Script",
+      desc_en:  "Built a Telegram bot that delivers Bhagavad Gītā verses, meanings, and study content to students of <strong>Mysore Datta Peeṭham</strong>. Content is managed through Google Sheets — teachers update the data and the bot instantly serves it to subscribers. No server, no infrastructure cost — entirely serverless via Google Apps Script triggers.",
+      desc_te:  "మైసూర్ దత్త పీఠం విద్యార్థులకు భగవద్గీత శ్లోకాలు, అర్థాలు మరియు అధ్యయన విషయాలను అందించే టెలిగ్రామ్ బాట్ నిర్మించారు. Google Sheets ద్వారా కంటెంట్ నిర్వహించబడుతుంది.",
+      impact: [
+        "Used daily by thousands of Gītā students across Mysore Datta Peeṭham",
+        "Zero server cost — fully serverless via Google Apps Script",
+        "Teachers manage all content through a simple Google Sheet",
+        "Delivers verses in Devanagari, Telugu, and transliteration",
+      ],
+      tags:      ["Google Apps Script","Telegram Bot API","Google Sheets","JavaScript","Serverless"],
+      link:      "",
+      linkLabel: "View on Telegram",
+      icon:      "🕉️",
+    },
+    /*
+     * To add another project, copy the block above and paste here.
+     * Set link: "" to hide the button, or add a real URL.
+     */
+  ],
+
+  /* ── GALLERY ──────────────────────────────────────────────────── */
+  /*
+   * Add photos here. Put image files in assets/images/gallery/
+   *
+   * Each item:
+   *   image      string  — path relative to project root
+   *   caption    string  — English caption
+   *   caption_te string  — Telugu caption (optional)
+   *   caption_sa string  — Sanskrit caption (optional)
+   *   category   string  — optional filter tag (e.g. "family","travel","awards")
+   */
+  gallery: [
+    {
+      image:      "assets/images/gallery/placeholder1.jpg",
+      caption:    "Add your first photo — place the image in assets/images/gallery/ and update this path",
+      caption_te: "మీ మొదటి ఫోటో జోడించండి",
+      category:   "personal",
+    },
+    {
+      image:      "assets/images/gallery/placeholder2.jpg",
+      caption:    "Family / Travel / Awards — anything that shows who you are beyond the CV",
+      caption_te: "కుటుంబం / ప్రయాణం / పురస్కారాలు",
+      category:   "travel",
+    },
+    {
+      image:      "assets/images/gallery/placeholder3.jpg",
+      caption:    "Conference, speaking engagement, or community event",
+      caption_te: "సమావేశం లేదా సమాజ కార్యక్రమం",
+      category:   "professional",
+    },
+  ],
+
+  /* ── SANSKRIT EXPERTISE ───────────────────────────────────────── */
+  sanskrit: {
+    bio_en: "A dedicated Sanskrit practitioner with formal examinations across three of India's most respected institutions — Saṃskṛta Bhāratī, IIT Roorkee, and the Śṛṅgerī Surasarasvatī Sabhā. Progressed from foundational Praveśaḥ through the advanced Kovidā level with Saṃskṛta Bhāratī, alongside a rigorous five-level grammar curriculum from IIT Roorkee covering vibhakti, lakāra, avyaya, kṛdanta, sandhi, and samāsa. A student of the Bhagavad Gītā in its original Sanskrit, guided by the Gītā Sopānam and Śṛṅgerī's traditional śāstra lineage.",
+    bio_te: "మూడు ప్రతిష్ఠాత్మక సంస్థల నుండి — సంస్కృత భారతి, IIT రూర్కీ మరియు శృంగేరీ సురసరస్వతీ సభ — అధికారిక పరీక్షలలో ఉత్తీర్ణులైన సంస్కృత సాధకుడు. సంస్కృత భారతి ప్రవేశ స్థాయి నుండి అత్యున్నత కోవిద స్థాయి వరకు అభివృద్ధి చెందారు. భగవద్గీతను మూల సంస్కృతంలో, శృంగేరీ శాస్త్ర పరంపర మార్గదర్శకత్వంలో అభ్యసిస్తున్నారు.",
+    bio_sa: "त्रिषु प्रतिष्ठितसंस्थासु — संस्कृतभारत्याम्, IIT-रुर्कीविश्वविद्यालये, शृङ्गेरीसुरसरस्वतीसभायां च — औपचारिकपरीक्षाः उत्तीर्णः संस्कृतसाधकः। संस्कृतभारत्याः प्रवेशस्तरात् आरभ्य कोविदस्तरपर्यन्तं प्रगतः। भगवद्गीतां मूलसंस्कृते, शृङ्गेरीशास्त्रपरम्परामार्गदर्शने च अभ्यस्यति।",
+
+    /*
+     * Certifications — grouped by institution.
+     * To add more: copy any object block and paste after the last one.
+     */
+    certifications: [
+      /* ── Saṃskṛta Bhāratī ── */
+      {
+        name:        "Praveśaḥ (प्रवेशः)",
+        institution: "Saṃskṛta Bhāratī",
+        level:       "Level 1",
+        desc_en:     "Foundation level — introduction to spoken Sanskrit",
+        desc_te:     "మాట్లాడే సంస్కృతానికి పరిచయం",
+        desc_sa:     "भाषितसंस्कृतस्य प्रारम्भिकः परिचयः",
+      },
+      {
+        name:        "Paricayā (परिचया)",
+        institution: "Saṃskṛta Bhāratī",
+        level:       "Level 2",
+        desc_en:     "Familiarity level — basic grammar and conversation",
+        desc_te:     "ప్రాథమిక వ్యాకరణం మరియు సంభాషణ",
+        desc_sa:     "प्राथमिकं व्याकरणं संभाषणं च",
+      },
+      {
+        name:        "Śikṣā (शिक्षा)",
+        institution: "Saṃskṛta Bhāratī",
+        level:       "Level 3",
+        desc_en:     "Teaching level — proficiency in grammar and composition",
+        desc_te:     "వ్యాకరణం మరియు రచనలో నైపుణ్యం",
+        desc_sa:     "व्याकरणे निबन्धने च प्रावीण्यम्",
+      },
+      {
+        name:        "Kovidā (कोविदा)",
+        institution: "Saṃskṛta Bhāratī",
+        level:       "Level 4 — Expert",
+        desc_en:     "Expert level — advanced grammar, kāvya, and śāstra texts",
+        desc_te:     "అధునాతన వ్యాకరణం, కావ్యం మరియు శాస్త్ర గ్రంథాలు",
+        desc_sa:     "उच्चतरं व्याकरणं, काव्यं, शास्त्रग्रन्थाश्च",
+      },
+      /* ── IIT Roorkee — Subhāṣitaṃ Saṃkṛtam ── */
+      {
+        name:        "Subhāṣitaṃ Saṃskṛtam — Level 1",
+        institution: "IIT Roorkee",
+        level:       "Spoken Sanskrit",
+        desc_en:     "Conversational Sanskrit — pronunciation, common phrases, basic sūtras",
+        desc_te:     "ఉచ్చారణ, సాధారణ వాక్యాలు, ప్రాథమిక సూత్రాలు",
+        desc_sa:     "उच्चारणं, सामान्यवाक्यानि, प्राथमिकसूत्राणि च",
+      },
+      {
+        name:        "Subhāṣitaṃ Saṃskṛtam — Level 2",
+        institution: "IIT Roorkee",
+        level:       "Vibhakti & Lakāra",
+        desc_en:     "Case endings (vibhakti) and verb conjugations (lakāra) — Pāṇinian grammar",
+        desc_te:     "విభక్తి మరియు లకార — పాణినీయ వ్యాకరణం",
+        desc_sa:     "विभक्तयः लकाराश्च — पाणिनीयव्याकरणम्",
+      },
+      {
+        name:        "Subhāṣitaṃ Saṃskṛtam — Level 3",
+        institution: "IIT Roorkee",
+        level:       "Avyaya, Kṛdanta & Prayoga",
+        desc_en:     "Indeclinables, participial forms, and applied usage in classical texts",
+        desc_te:     "అవ్యయాలు, కృదంతాలు మరియు ప్రయోగాలు",
+        desc_sa:     "अव्ययानि, कृदन्तानि, शास्त्रग्रन्थेषु प्रयोगश्च",
+      },
+      {
+        name:        "Subhāṣitaṃ Saṃskṛtam — Level 4",
+        institution: "IIT Roorkee",
+        level:       "Sandhiḥ",
+        desc_en:     "Euphonic combination rules (sandhi) — vowel, consonant and visarga sandhi",
+        desc_te:     "స్వర, వ్యంజన మరియు విసర్గ సంధి నియమాలు",
+        desc_sa:     "स्वर-व्यञ्जन-विसर्गसन्धिनियमाः",
+      },
+      {
+        name:        "Subhāṣitaṃ Saṃskṛtam — Level 5",
+        institution: "IIT Roorkee",
+        level:       "Samāsa & Anvaya",
+        desc_en:     "Compound word formation (samāsa) and introduction to sentence analysis (anvaya)",
+        desc_te:     "సమాస నిర్మాణం మరియు అన్వయ పరిచయం",
+        desc_sa:     "समासनिर्माणं अन्वयपरिचयश्च",
+      },
+      /* ── Gītā Sopānam ── */
+      {
+        name:        "Gītā Sopānam — Level 1",
+        institution: "Saṃskṛta Bhāratī",
+        level:       "Gītā in Sanskrit",
+        desc_en:     "Study of Bhagavad Gītā in original Sanskrit with word-by-word analysis",
+        desc_te:     "భగవద్గీతను మూల సంస్కృతంలో పద పద విశ్లేషణతో అధ్యయనం",
+        desc_sa:     "मूलसंस्कृते भगवद्गीतायाः पदशः अध्ययनम्",
+      },
+      /* ── Gītāyāḥ Bhāṣā Saṃskṛtam ── */
+      {
+        name:        "Gītāyāḥ Bhāṣā Saṃskṛtam — Level 1",
+        institution: "Saṃskṛta Bhāratī",
+        level:       "Gītā Language",
+        desc_en:     "Grammar and vocabulary specific to the language of the Bhagavad Gītā",
+        desc_te:     "భగవద్గీత భాష యొక్క వ్యాకరణం మరియు పదజాలం",
+        desc_sa:     "भगवद्गीतायाः भाषायाः व्याकरणं शब्दकोशश्च",
+      },
+      /* ── Śṛṅgerī Surasarasvatī Sabhā ── */
+      {
+        name:        "Prathamā (प्रथमा)",
+        institution: "Śṛṅgerī Surasarasvatī Sabhā",
+        level:       "Level 1",
+        desc_en:     "First traditional śāstra examination — grammar, poetry, and sacred texts",
+        desc_te:     "మొదటి సాంప్రదాయ శాస్త్ర పరీక్ష — వ్యాకరణం, కావ్యం మరియు పవిత్ర గ్రంథాలు",
+        desc_sa:     "प्रथमः पारम्परिकः शास्त्रपरीक्षः — व्याकरणं, काव्यं, पवित्रग्रन्थाश्च",
+      },
+      {
+        name:        "Dvitīyā (द्वितीया)",
+        institution: "Śṛṅgerī Surasarasvatī Sabhā",
+        level:       "Level 2",
+        desc_en:     "Second traditional śāstra examination — deeper study of grammar and philosophy",
+        desc_te:     "రెండవ శాస్త్ర పరీక్ష — వ్యాకరణం మరియు తత్త్వశాస్త్రం లోతైన అధ్యయనం",
+        desc_sa:     "द्वितीयः शास्त्रपरीक्षः — व्याकरणस्य दर्शनस्य च गहनमध्ययनम्",
+      },
+    ],
+
+    /* Texts studied / key works */
+    texts: [
+      {
+        en: "Śrīmadbhagavadgītā (मूलम्)",
+        te: "శ్రీమద్భగవద్గీత (మూలం)",
+        sa: "श्रीमद्भगवद्गीता (मूलम्)",
+      },
+      {
+        en: "Subhāṣita collections",
+        te: "సుభాషిత సంకలనాలు",
+        sa: "सुभाषितसंग्रहाः",
+      },
+      {
+        en: "Pāṇinīya Aṣṭādhyāyī (selected sūtras)",
+        te: "పాణినీయ అష్టాధ్యాయీ (ఎంపిక సూత్రాలు)",
+        sa: "पाणिनीयाष्टाध्यायी (चितानि सूत्राणि)",
+      },
+      {
+        en: "Amarakoṣaḥ (selected kāṇḍas)",
+        te: "అమరకోషః (ఎంపిక కాండాలు)",
+        sa: "अमरकोषः (चितानि काण्डानि)",
+      },
+      {
+        en: "Raghuvaṃśaḥ (selected sargas)",
+        te: "రఘువంశః (ఎంపిక సర్గాలు)",
+        sa: "रघुवंशः (चिताः सर्गाः)",
+      },
+      {
+        en: "Hitopadeśaḥ",
+        te: "హితోపదేశః",
+        sa: "हितोपदेशः",
+      },
+      {
+        en: "ŚrīmanMahābhāratam (selected adhyāyas)",
+        te: "శ్రీమన్మహాభారతం (ఎంపిక అధ్యాయాలు)",
+        sa: "श्रीमन्महाभारतम् (चिताः अध्यायाः)",
+      },
+    ],
+
+    teaching_en: "",  // add teaching experience here if applicable, or leave "" to hide
+    teaching_te: "",
+  },
+
+  /* ── SANSKRIT QUOTES (Subhāṣitāni) ───────────────────────────── */
+  /*
+   * Add your favourite Sanskrit quotes here.
+   * Each quote shows in 3 scripts on the card front,
+   * and the meaning + source on the card back (hover/tap to flip).
+   *
+   * Each quote:
+   *   devanagari  string  — Devanagari script
+   *   telugu      string  — Telugu script
+   *   iast        string  — IAST romanisation
+   *   meaning_en  string  — English meaning
+   *   meaning_te  string  — Telugu meaning (optional)
+   *   source      string  — text name, chapter/verse
+   */
+  quotes: [
+    {
+      devanagari: "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।\nमा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥",
+      telugu:     "కర్మణ్యేవాధికారస్తే మా ఫలేషు కదాచన।\nమా కర్మఫలహేతుర్భూర్మా తే సంగోఽస్త్వకర్మణి॥",
+      iast:       "Karmaṇyevādhikāraste mā phaleṣu kadācana,\nmā karmaphalaheturbhūrmā te saṅgo'stvakarmaṇi.",
+      meaning_en: "Your right is to perform your duty only — never to its fruits. Let not the fruits of action be your motive, nor let attachment to inaction be yours.",
+      meaning_te: "నీకు కర్మ చేయడంలో మాత్రమే అధికారం ఉంది, దాని ఫలాలపై కాదు. ఫలితాల పట్ల ఆసక్తి పెట్టుకోకు, నిష్క్రియత పట్ల అనురక్తి ఉంచుకోకు.",
+      source:     "Bhagavad Gītā 2.47",
+    },
+    {
+      devanagari: "विद्या ददाति विनयं विनयाद् याति पात्रताम्।\nपात्रत्वाद् धनमाप्नोति धनाद् धर्मं ततः सुखम्॥",
+      telugu:     "విద్యా దదాతి వినయం వినయాద్ యాతి పాత్రతామ్।\nపాత్రత్వాద్ ధనమాప్నోతి ధనాద్ ధర్మం తతః సుఖమ్॥",
+      iast:       "Vidyā dadāti vinayaṃ vinayād yāti pātratām,\npātratavād dhanamāpnoti dhanād dharmaṃ tataḥ sukham.",
+      meaning_en: "Knowledge gives humility; from humility comes worthiness; from worthiness one attains wealth; from wealth, righteousness; and from righteousness, happiness.",
+      meaning_te: "విద్య వినయాన్ని ఇస్తుంది; వినయం నుండి యోగ్యత వస్తుంది; యోగ్యత నుండి సంపద; సంపద నుండి ధర్మం; ధర్మం నుండి సుఖం.",
+      source:     "Hitopadeśa",
+    },
+    {
+      devanagari: "उद्यमेन हि सिध्यन्ति कार्याणि न मनोरथैः।\nन हि सुप्तस्य सिंहस्य प्रविशन्ति मुखे मृगाः॥",
+      telugu:     "ఉద్యమేన హి సిధ్యన్తి కార్యాణి న మనోరథైః।\nన హి సుప్తస్య సింహస్య ప్రవిశన్తి ముఖే మృగాః॥",
+      iast:       "Udyamena hi sidhyanti kāryāṇi na manorathaiḥ,\nna hi suptasya siṃhasya praviśanti mukhe mṛgāḥ.",
+      meaning_en: "Goals are achieved through sustained effort, not mere wishes. Deer do not walk into the mouth of a sleeping lion.",
+      meaning_te: "లక్ష్యాలు ప్రయత్నంతో సాధించబడతాయి, కేవలం కోరికలతో కాదు. నిద్రిస్తున్న సింహం నోటిలోకి జింకలు నడిచి రావు.",
+      source:     "Hitopadeśa",
+    },
+    {
+      devanagari: "अयं निजः परो वेति गणना लघुचेतसाम्।\nउदारचरितानां तु वसुधैव कुटुम्बकम्॥",
+      telugu:     "అయం నిజః పరో వేతి గణనా లఘుచేతసామ్।\nఉదారచరితానాం తు వసుధైవ కుటుంబకమ్॥",
+      iast:       "Ayaṃ nijaḥ paro veti gaṇanā laghucetasām,\nudāracaritānāṃ tu vasudhaiva kuṭumbakam.",
+      meaning_en: "'This is mine, that is another's' — only the small-minded think thus. For the noble-hearted, the whole world is one family.",
+      meaning_te: "'ఇది నాది, అది పరాయిది' అని అనుకోవడం సంకుచిత మనసుల లక్షణం. ఉదార స్వభావుల కు మొత్తం ప్రపంచమే కుటుంబం.",
+      source:     "Mahopaniṣad 6.71 / Hitopadeśa",
+    },
+    {
+      devanagari: "सा विद्या या विमुक्तये।",
+      telugu:     "సా విద్యా యా విముక్తయే।",
+      iast:       "Sā vidyā yā vimuktaye.",
+      meaning_en: "That alone is true knowledge which leads to liberation — all else is merely a craft.",
+      meaning_te: "విముక్తికి దారితీసేదే నిజమైన విద్య — తక్కినదంతా కేవలం ఒక నైపుణ్యం మాత్రమే.",
+      source:     "Viṣṇupurāṇa 1.19.41",
+    },
+    {
+      devanagari: "योगस्थः कुरु कर्माणि सङ्गं त्यक्त्वा धनञ्जय।\nसिद्ध्यसिद्ध्योः समो भूत्वा समत्वं योग उच्यते॥",
+      telugu:     "యోగస్థః కురు కర్మాణి సంగం త్యక్త్వా ధనంజయ।\nసిద్ధ్యసిద్ధ్యోః సమో భూత్వా సమత్వం యోగ ఉచ్యతే॥",
+      iast:       "Yogasthaḥ kuru karmāṇi saṅgaṃ tyaktvā dhanañjaya,\nsiddhyasiddhyoḥ samo bhūtvā samatvaṃ yoga ucyate.",
+      meaning_en: "Steadfast in yoga, perform your actions abandoning attachment, O Arjuna. Remaining equal in success and failure — that equanimity is called yoga.",
+      meaning_te: "యోగంలో స్థిరంగా ఉంటూ, ఆసక్తి వదిలి కర్మలు చెయ్యి. విజయ-అపజయాలలో సమభావంతో ఉండటమే యోగం అని అంటారు.",
+      source:     "Bhagavad Gītā 2.48",
+    },
+    {
+      devanagari: "जननी जन्मभूमिश्च स्वर्गादपि गरीयसी।",
+      telugu:     "జననీ జన్మభూమిశ్చ స్వర్గాదపి గరీయసీ।",
+      iast:       "Jananī janmabhūmiśca svargādapi garīyasī.",
+      meaning_en: "Mother and the land of one's birth are greater even than heaven.",
+      meaning_te: "తల్లి మరియు జన్మభూమి స్వర్గం కంటే గొప్పవి.",
+      source:     "Vālmīki Rāmāyaṇa, Ayodhyākāṇḍa 31.27",
+    },
+    {
+      devanagari: "परोपकाराय फलन्ति वृक्षाः परोपकाराय वहन्ति नद्यः।\nपरोपकाराय दुहन्ति गावः परोपकारार्थमिदं शरीरम्॥",
+      telugu:     "పరోపకారాయ ఫలన్తి వృక్షాః పరోపకారాయ వహన్తి నద్యః।\nపరోపకారాయ దుహన్తి గావః పరోపకారార్థమిదం శరీరమ్॥",
+      iast:       "Paropakārāya phalanti vṛkṣāḥ paropakārāya vahanti nadyaḥ,\nparopakārāya duhanti gāvaḥ paropakārārtham idaṃ śarīram.",
+      meaning_en: "Trees bear fruit for others; rivers flow for others; cows give milk for others — this very body exists for the service of others.",
+      meaning_te: "వృక్షాలు ఇతరుల కోసం ఫలాలు ఇస్తాయి; నదులు ఇతరుల కోసం ప్రవహిస్తాయి; ఆవులు ఇతరుల కోసం పాలు ఇస్తాయి — ఈ శరీరమే ఇతరుల సేవకు అర్పితమైనది.",
+      source:     "Pañcatantra / Subhāṣitaratnabhāṇḍāgāra",
+    },
+    {
+      devanagari: "नास्ति विद्यासमो बन्धुर्नास्ति विद्यासमः सुहृत्।\nनास्ति विद्यासमं वित्तं नास्ति विद्यासमः सुखम्॥",
+      telugu:     "నాస్తి విద్యాసమో బంధుర్నాస్తి విద్యాసమః సుహృత్।\nనాస్తి విద్యాసమం విత్తం నాస్తి విద్యాసమః సుఖమ్॥",
+      iast:       "Nāsti vidyāsamo bandhurnāsti vidyāsamaḥ suhṛt,\nnāsti vidyāsamaṃ vittaṃ nāsti vidyāsamaḥ sukham.",
+      meaning_en: "There is no relative like knowledge, no friend like knowledge, no wealth like knowledge, and no happiness equal to knowledge.",
+      meaning_te: "విద్యతో సమానమైన బంధువు లేదు, విద్యతో సమానమైన మిత్రుడు లేదు, విద్యతో సమానమైన సంపద లేదు, విద్యతో సమానమైన సుఖం లేదు.",
+      source:     "Cāṇakya Nīti 7.12",
+    },
+    {
+      devanagari: "धर्मो रक्षति रक्षितः।",
+      telugu:     "ధర్మో రక్షతి రక్షితః।",
+      iast:       "Dharmo rakṣati rakṣitaḥ.",
+      meaning_en: "Dharma protects those who protect it.",
+      meaning_te: "ధర్మాన్ని రక్షించేవారిని ధర్మం రక్షిస్తుంది.",
+      source:     "Manusmṛti 8.15 / Mahābhārata, Vana Parva",
+    },
+    {
+      devanagari: "असतो मा सद्गमय।\nतमसो मा ज्योतिर्गमय।\nमृत्योर्मा अमृतं गमय॥",
+      telugu:     "అసతో మా సద్గమయ।\nతమసో మా జ్యోతిర్గమయ।\nమృత్యోర్మా అమృతం గమయ॥",
+      iast:       "Asato mā sadgamaya,\ntamaso mā jyotirgamaya,\nmṛtyor mā amṛtaṃ gamaya.",
+      meaning_en: "Lead me from the unreal to the real; from darkness to light; from death to immortality.",
+      meaning_te: "అసత్యం నుండి సత్యం వైపు; అంధకారం నుండి వెలుగు వైపు; మృత్యువు నుండి అమృతత్వం వైపు నన్ను నడిపించు.",
+      source:     "Bṛhadāraṇyaka Upaniṣad 1.3.28",
+    },
+    {
+      devanagari: "सत्यमेव जयते नानृतम्।",
+      telugu:     "సత్యమేవ జయతే నానృతమ్।",
+      iast:       "Satyameva jayate nānṛtam.",
+      meaning_en: "Truth alone triumphs — not falsehood.",
+      meaning_te: "సత్యమే జయిస్తుంది — అసత్యం కాదు.",
+      source:     "Muṇḍakopaniṣad 3.1.6",
+    },
+    {
+      devanagari: "अहिंसा परमो धर्मः।",
+      telugu:     "అహింసా పరమో ధర్మః।",
+      iast:       "Ahiṃsā paramo dharmaḥ.",
+      meaning_en: "Non-violence is the highest dharma.",
+      meaning_te: "అహింస అత్యుత్తమ ధర్మం.",
+      source:     "Mahābhārata, Ādi Parva 11.13",
+    },
+    {
+      devanagari: "योगः कर्मसु कौशलम्।",
+      telugu:     "యోగః కర్మసు కౌశలమ్।",
+      iast:       "Yogaḥ karmasu kauśalam.",
+      meaning_en: "Yoga is excellence in action.",
+      meaning_te: "కర్మలలో నైపుణ్యమే యోగం.",
+      source:     "Bhagavad Gītā 2.50",
+    },
+    {
+      devanagari: "तत् त्वम् असि।",
+      telugu:     "తత్ త్వమ్ అసి।",
+      iast:       "Tat tvam asi.",
+      meaning_en: "Thou art That — the great Vedāntic equation identifying the individual self with universal Brahman.",
+      meaning_te: "తత్ — అది; త్వమ్ — నీవు; అసి — ఉన్నావు. జీవాత్మయే పరమాత్మ అనే వేదాంత మహావాక్యం.",
+      source:     "Chāndogya Upaniṣad 6.8.7",
+    },
+    {
+      devanagari: "सर्वे भवन्तु सुखिनः। सर्वे सन्तु निरामयाः।\nसर्वे भद्राणि पश्यन्तु। मा कश्चित् दुःखभाग् भवेत्॥",
+      telugu:     "సర్వే భవంతు సుఖినః। సర్వే సంతు నిరామయాః।\nసర్వే భద్రాణి పశ్యంతు। మా కశ్చిత్ దుఃఖభాగ్ భవేత్॥",
+      iast:       "Sarve bhavantu sukhinaḥ, sarve santu nirāmayāḥ,\nsarve bhadrāṇi paśyantu, mā kaścit duḥkhabhāg bhavet.",
+      meaning_en: "May all be happy; may all be free from illness; may all see what is auspicious; may none suffer.",
+      meaning_te: "అందరూ సుఖంగా ఉండుగాక; అందరూ నిరోగంగా ఉండుగాక; అందరూ శుభాన్ని చూచుగాక; ఎవరికీ దుఃఖం కలుగుగాక.",
+      source:     "Bṛhadāraṇyaka Upaniṣad (traditional benediction)",
+    },
+    {
+      devanagari: "न जायते म्रियते वा कदाचिन्\nनायं भूत्वा भविता वा न भूयः।\nअजो नित्यः शाश्वतोऽयं पुराणो\nन हन्यते हन्यमाने शरीरे॥",
+      telugu:     "న జాయతే మ్రియతే వా కదాచిన్\nనాయం భూత్వా భవితా వా న భూయః।\nఅజో నిత్యః శాశ్వతోఽయం పురాణో\nన హన్యతే హన్యమానే శరీరే॥",
+      iast:       "Na jāyate mriyate vā kadācin nāyaṃ bhūtvā bhavitā vā na bhūyaḥ,\najo nityaḥ śāśvato'yaṃ purāṇo na hanyate hanyamāne śarīre.",
+      meaning_en: "The soul is never born nor dies; it was not, is not, and will not come into being. Unborn, eternal, ever-existing, primeval — it does not perish when the body is slain.",
+      meaning_te: "ఆత్మ ఎన్నటికీ జన్మించదు, మరణించదు; అది జన్మరహితం, నిత్యం, శాశ్వతం, పురాతనం — శరీరం నాశనమైనా ఆత్మ నశించదు.",
+      source:     "Bhagavad Gītā 2.20",
+    },
+    {
+      devanagari: "एकं सद् विप्रा बहुधा वदन्ति।",
+      telugu:     "ఏకం సద్ విప్రా బహుధా వదన్తి।",
+      iast:       "Ekaṃ sad viprā bahudhā vadanti.",
+      meaning_en: "Truth is one; the wise call it by many names.",
+      meaning_te: "సత్యం ఒక్కటే; విద్వాంసులు దాన్ని వేర్వేరు పేర్లతో పిలుస్తారు.",
+      source:     "Ṛgveda 1.164.46",
+    },
+    {
+      devanagari: "श्रद्धावान् लभते ज्ञानम्।",
+      telugu:     "శ్రద్ధావాన్ లభతే జ్ఞానమ్।",
+      iast:       "Śraddhāvān labhate jñānam.",
+      meaning_en: "The faithful and sincere seeker attains knowledge.",
+      meaning_te: "శ్రద్ధ కలిగినవాడే జ్ఞానాన్ని పొందుతాడు.",
+      source:     "Bhagavad Gītā 4.39",
+    },
+    {
+      devanagari: "लोकाः समस्ताः सुखिनो भवन्तु।",
+      telugu:     "లోకాః సమస్తాః సుఖినో భవంతు।",
+      iast:       "Lokāḥ samastāḥ sukhino bhavantu.",
+      meaning_en: "May all the worlds be happy.",
+      meaning_te: "సమస్త లోకాలు సుఖంగా ఉండుగాక.",
+      source:     "Traditional Vedic benediction",
+    },
+    {
+      devanagari: "क्षमा बलमशक्तानां शस्त्रं शक्तिमतां क्षमा।\nक्षमा वशीकृतिर्लोके क्षमया किं न साध्यते॥",
+      telugu:     "క్షమా బలమశక్తానాం శస్త్రం శక్తిమతాం క్షమా।\nక్షమా వశీకృతిర్లోకే క్షమయా కిం న సాధ్యతే॥",
+      iast:       "Kṣamā balam aśaktānāṃ śastraṃ śaktimatāṃ kṣamā,\nkṣamā vaśīkṛtirloke kṣamayā kiṃ na sādhyate.",
+      meaning_en: "Forgiveness is the strength of the powerless; forgiveness is the weapon of the powerful. Forgiveness governs the world — what cannot be achieved through forgiveness?",
+      meaning_te: "క్షమ అశక్తుల బలం; క్షమ బలవంతుల ఆయుధం. క్షమ ప్రపంచాన్ని వశపరచుకునే మార్గం — క్షమతో సాధించలేనిది ఏముంది?",
+      source:     "Mahābhārata, Udyoga Parva 33.31",
+    },
+    {
+      devanagari: "सन्तोषः परमं सुखम्।",
+      telugu:     "సంతోషః పరమం సుఖమ్।",
+      iast:       "Santoṣaḥ paramaṃ sukham.",
+      meaning_en: "Contentment is the highest happiness.",
+      meaning_te: "తృప్తి అత్యుత్తమ సుఖం.",
+      source:     "Mahābhārata, Śānti Parva",
+    },
+    {
+      devanagari: "स्वाध्यायान्मा प्रमदः।",
+      telugu:     "స్వాధ్యాయాన్మా ప్రమదః।",
+      iast:       "Svādhyāyān mā pramadaḥ.",
+      meaning_en: "Never be negligent in self-study.",
+      meaning_te: "స్వాధ్యాయంలో ఎన్నడూ అశ్రద్ధ చేయకు.",
+      source:     "Taittirīya Upaniṣad 1.11.1",
+    },
+    {
+      devanagari: "सत्यं वद। धर्मं चर।",
+      telugu:     "సత్యం వద। ధర్మం చర।",
+      iast:       "Satyaṃ vada. Dharmaṃ cara.",
+      meaning_en: "Speak truth. Follow dharma — the two-fold counsel at the heart of the Vedic graduate's departure into the world.",
+      meaning_te: "సత్యం పలుకు. ధర్మం ఆచరించు — వేద విద్యార్థి గృహస్థాశ్రమంలో ప్రవేశించేటప్పుడు గురువు ఇచ్చే ద్విముఖ ఆదేశం.",
+      source:     "Taittirīya Upaniṣad 1.11.1",
+    },
+    {
+      devanagari: "चरैवेति चरैवेति।",
+      telugu:     "చరైవేతి చరైవేతి।",
+      iast:       "Caraiveti caraiveti.",
+      meaning_en: "Keep moving, keep moving — the Vedic exhortation never to stagnate; forward motion is the nature of life itself.",
+      meaning_te: "నడుచుచుండుము, నడుచుచుండుము — ఆగిపోవద్దని వేద ప్రోత్సాహం; ముందుకు సాగడమే జీవితం యొక్క స్వభావం.",
+      source:     "Aitareya Brāhmaṇa 33.3 (Ṛgveda)",
+    },
+  ],
+
+  /* ── SOURCE-TEXT REFERENCES (Glossary Modal) ─────────────────── */
+  references: [
+    {
+      icon: "🕉️",
+      title: "Bhagavad Gītā",
+      title_sa_script: "श्रीमद्भगवद्गीता",
+      period: "~500–200 BCE · 700 verses · 18 chapters",
+      tags: ["Itihāsa", "Yoga Śāstra", "Anuṣṭubh metre"],
+      author_en: "Vyāsa (embedded in Mahābhārata, Bhīṣma Parva)",
+      author_te: "వ్యాసుడు (మహాభారత భీష్మపర్వంలో అంతర్భాగం)",
+      author_sa: "व्यासः (महाभारतस्य भीष्मपर्वणि अन्तर्भूतम्)",
+      desc_en: "A 700-verse dialogue between Arjuna and Kṛṣṇa on the battlefield of Kurukṣetra. It synthesises karma, jñāna, and bhakti yoga, presenting the path of equanimous action and self-knowledge. Its teachings remain among the most studied in world philosophy.",
+      desc_te: "కురుక్షేత్ర రణభూమిలో అర్జున-కృష్ణుల మధ్య జరిగిన ౭౦౦ శ్లోకాల సంవాదం. కర్మ, జ్ఞాన, భక్తియోగాలను సమన్వయించి సమభావ కర్మాచరణం మరియు ఆత్మజ్ఞానం యొక్క మార్గాన్ని బోధిస్తుంది. ప్రపంచ దర్శనంలో అత్యంత అధ్యయనం చేయబడిన రచనలలో ఒకటి.",
+      desc_sa: "कुरुक्षेत्ररणाङ्गणे अर्जुन-कृष्णयोः ७०० श्लोकात्मकः संवादः। कर्म-ज्ञान-भक्तियोगान् समन्वय्य समत्वकर्मणः आत्मज्ञानस्य च मार्गं प्रतिपादयति। विश्वदर्शने अतीव बहुलमधीतमिदं शास्त्रम्।",
+    },
+    {
+      icon: "🏹",
+      title: "Vālmīki Rāmāyaṇa",
+      title_sa_script: "वाल्मीकि रामायणम्",
+      period: "~500–200 BCE · 24,000 verses · 7 kāṇḍas",
+      tags: ["Itihāsa", "Ādi Kāvya", "Anuṣṭubh metre"],
+      author_en: "Maharṣi Vālmīki — Ādi Kavi (the first poet)",
+      author_te: "మహర్షి వాల్మీకి — ఆదికవి (ప్రథమ కవి)",
+      author_sa: "महर्षिः वाल्मीकिः — आदिकविः",
+      desc_en: "The Ādi Kāvya — the first poem in Sanskrit literature. Chronicles the life of Rāma from exile through rescue of Sītā. Beyond its narrative, it is a treatise on dharma, filial duty, and statecraft. The verse <em>jananī janmabhūmiśca svargādapi garīyasī</em> originates here.",
+      desc_te: "సంస్కృత సాహిత్యంలో ప్రథమ కావ్యం — ఆదికావ్యం. వనవాసం నుండి సీతాదేవి రక్షణ వరకు రాముని జీవితాన్ని వర్ణిస్తుంది. ధర్మం, పితృభక్తి, రాజనీతిపై శాస్త్రంగా ఉంది. <em>జననీ జన్మభూమిశ్చ స్వర్గాదపి గరీయసీ</em> అనే శ్లోకం ఇక్కడే జన్మించింది.",
+      desc_sa: "संस्कृतसाहित्ये प्रथमं काव्यम् — आदिकाव्यम्। वनगमनात् सीतायाः उद्धारपर्यन्तं रामस्य जीवनं वर्णयति। धर्मे पितृभक्तौ राजनीतौ च महच्छास्त्रम्। <em>जननी जन्मभूमिश्च स्वर्गादपि गरीयसी</em> इत्यस्य श्लोकस्य एतदेव जन्मस्थानम्।",
+    },
+    {
+      icon: "⚔️",
+      title: "Mahābhārata",
+      title_sa_script: "महाभारतम्",
+      period: "~400 BCE – 400 CE · ~100,000 verses · 18 parvas",
+      tags: ["Itihāsa", "Dharmaśāstra", "Encyclopaedic"],
+      author_en: "Vyāsa (Kṛṣṇa Dvaipāyana)",
+      author_te: "వ్యాసుడు (కృష్ణ ద్వైపాయనుడు)",
+      author_sa: "व्यासः (कृष्णद्वैपायनः)",
+      desc_en: "The longest epic ever composed. Narrates the Kurukṣetra War while embedding vast philosophical, legal, and devotional teachings. The Bhagavad Gītā, Vidura Nīti, and <em>dharmo rakṣati rakṣitaḥ</em> are all woven within its fabric.",
+      desc_te: "ఇప్పటివరకు రచించిన అతి పొడవైన మహాకావ్యం. కురుక్షేత్ర యుద్ధాన్ని వర్ణిస్తూ తాత్విక, ధార్మిక, భక్తిప్రధాన బోధనలను అంతర్గతంగా కలిగి ఉంది. భగవద్గీత, విదుర నీతి మరియు <em>ధర్మో రక్షతి రక్షితః</em> — ఇవన్నీ దీని అంతర్భాగాలే.",
+      desc_sa: "अद्यावधि रचितानां काव्यानां मध्ये दीर्घतमम्। कुरुक्षेत्रयुद्धं वर्णयन् दार्शनिक-धार्मिक-भक्तिपूर्णान् उपदेशान् प्रतिपादयति। भगवद्गीता, विदुरनीतिः, <em>धर्मो रक्षति रक्षितः</em> च — सर्वमेतत् अस्यैव अंशाः।",
+    },
+    {
+      icon: "🦊",
+      title: "Hitopadeśa",
+      title_sa_script: "हितोपदेशः",
+      period: "~800–1200 CE · prose & verse · 4 books",
+      tags: ["Nīti Śāstra", "Kathā Sāhitya"],
+      author_en: "Nārāyaṇa Paṇḍita",
+      author_te: "నారాయణ పండితుడు",
+      author_sa: "नारायणपण्डितः",
+      desc_en: "Beneficial Advice — a refined collection of animal fables teaching practical wisdom about friendship, war, and peace. Its verses on education (<em>vidyā dadāti vinayam</em>), effort, and conduct are beloved subhāṣitas in everyday Sanskrit discourse.",
+      desc_te: "హితమైన ఉపదేశం — మిత్రత్వం, యుద్ధం, శాంతిపై ఆచరణాత్మక జ్ఞానాన్ని బోధించే జంతుకథల సంకలనం. <em>విద్యా దదాతి వినయం</em>, ప్రయత్నం, ప్రవర్తనపై శ్లోకాలు నిత్య సంస్కృత వ్యవహారంలో ప్రియమైన సుభాషితాలు.",
+      desc_sa: "हितोपदेशः — मैत्री-युद्ध-शान्तिविषयेषु व्यावहारिकज्ञानप्रदाः पशुकथाः। <em>विद्या ददाति विनयम्</em> इत्यादयः उद्यम-सदाचारविषयकाः श्लोकाः नित्यसंस्कृतव्यवहारे लोकप्रियाः सुभाषितानि।",
+    },
+    {
+      icon: "🐘",
+      title: "Pañcatantra",
+      title_sa_script: "पञ्चतन्त्रम्",
+      period: "~300 BCE – 300 CE · 5 books · prose & verse",
+      tags: ["Nīti Śāstra", "Fable literature"],
+      author_en: "Viṣṇuśarman (attributed)",
+      author_te: "విష్ణుశర్మ (ఆపాదించబడిన రచయిత)",
+      author_sa: "विष्णुशर्मन् (आरोपितकर्ता)",
+      desc_en: "Five interconnected books of animal fables compiled to educate princes in worldly wisdom. Translated into nearly every world language — one of the most widely translated books after the Bible. The <em>paropakārāya</em> verse on selfless service is a celebrated subhāṣita.",
+      desc_te: "రాజకుమారులకు ప్రాపంచిక జ్ఞానం నేర్పడానికి సంకలించిన అయిదు అనుసంధానిత జంతుకథల సంపుటి. బైబిల్ తర్వాత దాదాపు ప్రతి భాషలోకి అనువదించబడిన గ్రంథాలలో ఒకటి. <em>పరోపకారాయ</em> శ్లోకం నిస్వార్థ సేవపై ప్రసిద్ధ సుభాషితం.",
+      desc_sa: "राजपुत्राणां व्यावहारिकज्ञानशिक्षणाय संकलिताः पञ्च तन्त्राः पशुकथाः। बाइबिलानन्तरं प्रायः सर्वासु भाषासु अनूदितेषु ग्रन्थेषु एकः। <em>परोपकाराय</em> श्लोकः परहितसेवायाः विषये प्रसिद्धः सुभाषितः।",
+    },
+    {
+      icon: "🏛️",
+      title: "Cāṇakya Nīti",
+      title_sa_script: "चाणक्यनीतिशास्त्रम्",
+      period: "~4th century BCE · aphorisms on statecraft & life",
+      tags: ["Nīti Śāstra", "Arthaśāstra"],
+      author_en: "Kauṭilya / Viṣṇugupta (Cāṇakya)",
+      author_te: "కౌటిల్యుడు / విష్ణుగుప్తుడు (చాణక్యుడు)",
+      author_sa: "कौटिल्यः / विष्णुगुप्तः (चाणक्यः)",
+      desc_en: "Prime minister of Candragupta Maurya and author of the Arthaśāstra. His maxim <em>nāsti vidyāsamo bandhuḥ</em> (there is no kinsman like knowledge) distils the ancient Indian reverence for education as the supreme wealth, transcending material fortune.",
+      desc_te: "చంద్రగుప్త మౌర్యుని ప్రధానమంత్రి మరియు అర్థశాస్త్ర రచయిత. <em>నాస్తి విద్యాసమో బంధుః</em> — విద్యే అత్యుత్తమ సంపద — అనే సూక్తి విద్యపై భారతీయ జ్ఞానపరంపరయొక్క గాఢ గౌరవాన్ని వ్యక్తపరుస్తుంది.",
+      desc_sa: "चन्द्रगुप्तमौर्यस्य प्रधानमन्त्री अर्थशास्त्रकर्ता च। <em>नास्ति विद्यासमो बन्धुः</em> — विद्यैव परमं वित्तम् — इति सूक्तिः विद्याविषये भारतीयज्ञानपरम्परायाः गभीरं सम्मानं प्रकटयति।",
+    },
+    {
+      icon: "⚖️",
+      title: "Manusmṛti",
+      title_sa_script: "मनुस्मृतिः",
+      period: "~200 BCE – 200 CE · 2,685 verses · 12 chapters",
+      tags: ["Dharmaśāstra", "Smṛti literature"],
+      author_en: "Manu (traditional attribution)",
+      author_te: "మను (సాంప్రదాయిక ఆపాదన)",
+      author_sa: "मनुः (पारम्परिकः)",
+      desc_en: "One of the earliest dharmaśāstra texts. Contains profound aphorisms on righteousness — notably <em>dharmo rakṣati rakṣitaḥ</em>, a principle also echoed in the Mahābhārata, affirming that dharma and its protectors sustain each other in reciprocal covenant.",
+      desc_te: "ప్రారంభ ధర్మశాస్త్ర గ్రంథాలలో ఒకటి. ధర్మంపై గాఢమైన సూక్తులను కలిగి ఉంది — ముఖ్యంగా <em>ధర్మో రక్షతి రక్షితః</em>, ఇది మహాభారతంలో కూడా ప్రతిధ్వనిస్తుంది. ధర్మం మరియు దాని రక్షకులు పరస్పరం ఒకరికొకరు నిలబెట్టుకుంటారని నిరూపిస్తుంది.",
+      desc_sa: "प्राचीनतमेषु धर्मशास्त्रग्रन्थेषु एकः। धर्मविषये गभीराणि सूक्तानि विद्यन्ते — विशेषतः <em>धर्मो रक्षति रक्षितः</em>, यत् महाभारतेऽपि प्रतिध्वनति। धर्मः तस्य रक्षकाश्च परस्परं पोषयन्तीति दर्शयति।",
+    },
+    {
+      icon: "🌀",
+      title: "Viṣṇupurāṇa",
+      title_sa_script: "विष्णुपुराणम्",
+      period: "~1st–4th century CE · 6 aṃśas · ~23,000 verses",
+      tags: ["Purāṇa", "Vaiṣṇava"],
+      author_en: "Parāśara Maharṣi (traditional attribution)",
+      author_te: "పరాశర మహర్షి (సాంప్రదాయిక ఆపాదన)",
+      author_sa: "पराशरमहर्षिः (पारम्परिकः)",
+      desc_en: "Among the eighteen Mahāpurāṇas, regarded as the most authoritative Vaiṣṇava text. The verse <em>sā vidyā yā vimuktaye</em> — only that which liberates deserves to be called true knowledge — appears in its first section and remains one of the most cited Sanskrit definitions of education.",
+      desc_te: "పద్దెనిమిది మహాపురాణాలలో ఒకటి, వైష్ణవ సంప్రదాయంలో అత్యంత ప్రామాణికమైనది. <em>సా విద్యా యా విముక్తయే</em> — విముక్తికి దారితీసేదే నిజమైన విద్య — అనే శ్లోకం మొదటి అంశంలో ఉంది. విద్యకు ఇచ్చిన అత్యంత ఉదహరించబడిన సంస్కృత నిర్వచనాలలో ఒకటి.",
+      desc_sa: "अष्टादशमहापुराणेषु एकम्, वैष्णवसम्प्रदाये सर्वाधिकप्रामाणिकम्। <em>सा विद्या या विमुक्तये</em> — यत् विमोक्षाय तदेव विद्या — इति श्लोकः प्रथमांशे विद्यते। विद्यायाः संस्कृते अतिबहुलमुद्धृतानां लक्षणानामेकमिदम्।",
+    },
+    {
+      icon: "🧘",
+      title: "Mahopaniṣad",
+      title_sa_script: "महोपनिषद्",
+      period: "Associated with Sāmaveda · Vedānta tradition",
+      tags: ["Upaniṣad", "Vedānta", "Sāmaveda"],
+      author_en: "Vedic tradition (Upaniṣadic corpus)",
+      author_te: "వేదపరంపర (ఉపనిషత్ సంహిత)",
+      author_sa: "वेदपरम्परा (उपनिषत्कोशः)",
+      desc_en: "A minor Upaniṣad teaching liberation through non-attachment. The earliest textual source of <em>vasudhaiva kuṭumbakam</em> (the whole world is one family) — a vision of universal kinship that became India's philosophical gift to global civilisation.",
+      desc_te: "అనాసక్తి ద్వారా విముక్తిని బోధించే ఒక చిన్న ఉపనిషత్తు. <em>వసుధైవ కుటుంబకం</em> (మొత్తం ప్రపంచమే ఒక కుటుంబం) అనే విశ్వకుటుంబ దర్శనానికి ప్రారంభ ఆధారం — భారతదేశం ప్రపంచ నాగరికతకు అందించిన తాత్విక బహుమతి.",
+      desc_sa: "वैराग्येण मुक्तिं प्रतिपादयन् एकः लघूपनिषद्। <em>वसुधैव कुटुम्बकम्</em> — विश्वकुटुम्बदर्शनस्य प्राचीनतमो ग्रन्थः — इति भारतीयसंस्कृतेः विश्वसभ्यतायै दार्शनिकं दानम्।",
+    },
+  ],
+
+};
