@@ -26,6 +26,7 @@ Print commands — dump actual content by script:
     quotes iast          Print all 25 shlokas in IAST romanisation
     quotes meaning_en    Print all 25 English meanings
     quotes meaning_te    Print all 25 Telugu meanings
+    quotes meaning_sa    Print all 25 Sanskrit meanings
     quotes all           Print all fields for every quote (full dump)
 """
 
@@ -104,6 +105,7 @@ def _parse_quotes():
             'iast':       get('iast'),
             'meaning_en': get('meaning_en'),
             'meaning_te': get('meaning_te'),
+            'meaning_sa': get('meaning_sa'),
             'source':     get('source'),
         })
     return quotes
@@ -115,7 +117,7 @@ def check_quotes(print_field=None):
     quotes = _parse_quotes()
 
     # ── Print mode ────────────────────────────────────────────────
-    PRINT_FIELDS = ('devanagari', 'telugu', 'iast', 'meaning_en', 'meaning_te', 'all')
+    PRINT_FIELDS = ('devanagari', 'telugu', 'iast', 'meaning_en', 'meaning_te', 'meaning_sa', 'all')
     if print_field:
         if print_field not in PRINT_FIELDS:
             fail(f'Unknown field "{print_field}". Choose from: {", ".join(PRINT_FIELDS)}')
@@ -126,6 +128,7 @@ def check_quotes(print_field=None):
             'iast':       'IAST romanisation',
             'meaning_en': 'English meaning',
             'meaning_te': 'Telugu meaning',
+            'meaning_sa': 'Sanskrit meaning',
             'all':        'Full dump',
         }
         section(f'QUOTES — {label_map[print_field]}  ({len(quotes)} total)')
@@ -147,17 +150,22 @@ def check_quotes(print_field=None):
         fail('Could not parse quote blocks')
         return
     missing_te = []
+    missing_sa = []
     for i, q in enumerate(quotes, 1):
         issues = [f for f in ('devanagari','telugu','iast','meaning_en') if not q[f]]
         if issues:
             fail(f'Quote {i:2}: missing {", ".join(issues)}')
-        if not q['meaning_te']:
-            missing_te.append(i)
+        if not q['meaning_te']: missing_te.append(i)
+        if not q['meaning_sa']: missing_sa.append(i)
     ok(f'All {len(quotes)} quotes have devanagari / telugu / iast / meaning_en')
     if missing_te:
         warn(f'Quotes without meaning_te (Telugu meaning): {missing_te}')
     else:
         ok('All quotes have meaning_te')
+    if missing_sa:
+        warn(f'Quotes without meaning_sa (Sanskrit meaning): {missing_sa}')
+    else:
+        ok('All quotes have meaning_sa')
 
 
 def check_experience():
@@ -318,5 +326,5 @@ if __name__ == '__main__':
     else:
         print(f'Unknown check: "{arg}"')
         print(f'Available: all, {", ".join(CHECKS.keys())}')
-        print(f'  quotes devanagari | telugu | iast | meaning_en | meaning_te | all')
+        print(f'  quotes devanagari | telugu | iast | meaning_en | meaning_te | meaning_sa | all')
         sys.exit(1)

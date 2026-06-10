@@ -612,6 +612,7 @@ const CV = {
       iast:       "Karmaṇyevādhikāraste mā phaleṣu kadācana,\nmā karmaphalaheturbhūrmā te saṅgo'stvakarmaṇi.",
       meaning_en: "Your right is to perform your duty only — never to its fruits. Let not the fruits of action be your motive, nor let attachment to inaction be yours.",
       meaning_te: "నీకు కర్మ చేయడంలో మాత్రమే అధికారం ఉంది, దాని ఫలాలపై కాదు. ఫలితాల పట్ల ఆసక్తి పెట్టుకోకు, నిష్క్రియత పట్ల అనురక్తి ఉంచుకోకు.",
+      meaning_sa: "कर्म कर्तुमेव ते अधिकारः, न तु तत्फलम्। फलाशया कर्म मा कुरु, अकर्मणि च अनुरागः मा भवतु।",
       source:     "Bhagavad Gītā 2.47",
     },
     {
@@ -620,6 +621,7 @@ const CV = {
       iast:       "Vidyā dadāti vinayaṃ vinayād yāti pātratām,\npātratavād dhanamāpnoti dhanād dharmaṃ tataḥ sukham.",
       meaning_en: "Knowledge gives humility; from humility comes worthiness; from worthiness one attains wealth; from wealth, righteousness; and from righteousness, happiness.",
       meaning_te: "విద్య వినయాన్ని ఇస్తుంది; వినయం నుండి యోగ్యత వస్తుంది; యోగ్యత నుండి సంపద; సంపద నుండి ధర్మం; ధర్మం నుండి సుఖం.",
+      meaning_sa: "विद्या विनयं ददाति, विनयात् पात्रता जायते, पात्रतया धनम् आगच्छति, धनात् धर्मः, धर्मात् च सुखम् अवाप्यते।",
       source:     "Hitopadeśa",
     },
     {
@@ -628,6 +630,7 @@ const CV = {
       iast:       "Udyamena hi sidhyanti kāryāṇi na manorathaiḥ,\nna hi suptasya siṃhasya praviśanti mukhe mṛgāḥ.",
       meaning_en: "Goals are achieved through sustained effort, not mere wishes. Deer do not walk into the mouth of a sleeping lion.",
       meaning_te: "లక్ష్యాలు ప్రయత్నంతో సాధించబడతాయి, కేవలం కోరికలతో కాదు. నిద్రిస్తున్న సింహం నోటిలోకి జింకలు నడిచి రావు.",
+      meaning_sa: "कार्याणि उद्यमेन एव सिध्यन्ति, केवलैः मनोरथैः न। यथा सुप्तस्य सिंहस्य मुखे मृगाः स्वयमेव न आयान्ति।",
       source:     "Hitopadeśa",
     },
     {
@@ -636,6 +639,7 @@ const CV = {
       iast:       "Ayaṃ nijaḥ paro veti gaṇanā laghucetasām,\nudāracaritānāṃ tu vasudhaiva kuṭumbakam.",
       meaning_en: "'This is mine, that is another's' — only the small-minded think thus. For the noble-hearted, the whole world is one family.",
       meaning_te: "'ఇది నాది, అది పరాయిది' అని అనుకోవడం సంకుచిత మనసుల లక్షణం. ఉదార స్వభావుల కు మొత్తం ప్రపంచమే కుటుంబం.",
+      meaning_sa: "अयं स्वः, असौ परः — इति विभेदचिन्तनं क्षुद्रचित्तानाम् एव। उदारचरितानां तु सर्वा वसुधा एकं कुटुम्बम्।",
       source:     "Mahopaniṣad 6.71 / Hitopadeśa",
     },
     {
@@ -644,6 +648,7 @@ const CV = {
       iast:       "Sā vidyā yā vimuktaye.",
       meaning_en: "That alone is true knowledge which leads to liberation — all else is merely a craft.",
       meaning_te: "విముక్తికి దారితీసేదే నిజమైన విద్య — తక్కినదంతా కేవలం ఒక నైపుణ్యం మాత్రమే.",
+      meaning_sa: "या विद्या मोक्षाय उपयोगिनी, सा एव सत्या विद्या। इतरत् सर्वं केवलं शिल्पमात्रम्।",
       source:     "Viṣṇupurāṇa 1.19.41",
     },
     {
@@ -652,6 +657,7 @@ const CV = {
       iast:       "Yogasthaḥ kuru karmāṇi saṅgaṃ tyaktvā dhanañjaya,\nsiddhyasiddhyoḥ samo bhūtvā samatvaṃ yoga ucyate.",
       meaning_en: "Steadfast in yoga, perform your actions abandoning attachment, O Arjuna. Remaining equal in success and failure — that equanimity is called yoga.",
       meaning_te: "యోగంలో స్థిరంగా ఉంటూ, ఆసక్తి వదిలి కర్మలు చెయ్యి. విజయ-అపజయాలలో సమభావంతో ఉండటమే యోగం అని అంటారు.",
+      meaning_sa: "हे धनञ्जय, योगे स्थित्वा, आसक्तिं त्यक्त्वा कर्म कुरु। सिद्धौ असिद्धौ च समभावः एव योगः उच्यते।",
       source:     "Bhagavad Gītā 2.48",
     },
     {
@@ -660,6 +666,7 @@ const CV = {
       iast:       "Jananī janmabhūmiśca svargādapi garīyasī.",
       meaning_en: "Mother and the land of one's birth are greater even than heaven.",
       meaning_te: "తల్లి మరియు జన్మభూమి స్వర్గం కంటే గొప్పవి.",
+      meaning_sa: "जनयित्री माता च जन्मभूमिः च — एतौ द्वौ स्वर्गादपि श्रेष्ठौ।",
       source:     "Vālmīki Rāmāyaṇa, Ayodhyākāṇḍa 31.27",
     },
     {
@@ -668,6 +675,7 @@ const CV = {
       iast:       "Paropakārāya phalanti vṛkṣāḥ paropakārāya vahanti nadyaḥ,\nparopakārāya duhanti gāvaḥ paropakārārtham idaṃ śarīram.",
       meaning_en: "Trees bear fruit for others; rivers flow for others; cows give milk for others — this very body exists for the service of others.",
       meaning_te: "వృక్షాలు ఇతరుల కోసం ఫలాలు ఇస్తాయి; నదులు ఇతరుల కోసం ప్రవహిస్తాయి; ఆవులు ఇతరుల కోసం పాలు ఇస్తాయి — ఈ శరీరమే ఇతరుల సేవకు అర్పితమైనది.",
+      meaning_sa: "वृक्षाः परार्थाय फलन्ति, नद्यः परार्थाय प्रवहन्ति, गावः परार्थाय दुहन्ति। एतदेव दर्शयति यत् अस्माकं देहोऽपि परोपकारार्थमेव।",
       source:     "Pañcatantra / Subhāṣitaratnabhāṇḍāgāra",
     },
     {
@@ -676,6 +684,7 @@ const CV = {
       iast:       "Nāsti vidyāsamo bandhurnāsti vidyāsamaḥ suhṛt,\nnāsti vidyāsamaṃ vittaṃ nāsti vidyāsamaḥ sukham.",
       meaning_en: "There is no relative like knowledge, no friend like knowledge, no wealth like knowledge, and no happiness equal to knowledge.",
       meaning_te: "విద్యతో సమానమైన బంధువు లేదు, విద్యతో సమానమైన మిత్రుడు లేదు, విద్యతో సమానమైన సంపద లేదు, విద్యతో సమానమైన సుఖం లేదు.",
+      meaning_sa: "विद्यायाः सदृशः बन्धुः नास्ति, सुहृत् नास्ति, वित्तं नास्ति, सुखञ्च नास्ति। विद्या सर्वेभ्यः उत्तमा।",
       source:     "Cāṇakya Nīti 7.12",
     },
     {
@@ -684,6 +693,7 @@ const CV = {
       iast:       "Dharmo rakṣati rakṣitaḥ.",
       meaning_en: "Dharma protects those who protect it.",
       meaning_te: "ధర్మాన్ని రక్షించేవారిని ధర్మం రక్షిస్తుంది.",
+      meaning_sa: "यः धर्मं रक्षति, तं धर्मः रक्षति। अतः धर्मपालने एव स्वरक्षणम्।",
       source:     "Manusmṛti 8.15 / Mahābhārata, Vana Parva",
     },
     {
@@ -692,6 +702,7 @@ const CV = {
       iast:       "Asato mā sadgamaya,\ntamaso mā jyotirgamaya,\nmṛtyor mā amṛtaṃ gamaya.",
       meaning_en: "Lead me from the unreal to the real; from darkness to light; from death to immortality.",
       meaning_te: "అసత్యం నుండి సత్యం వైపు; అంధకారం నుండి వెలుగు వైపు; మృత్యువు నుండి అమృతత్వం వైపు నన్ను నడిపించు.",
+      meaning_sa: "असतः सत्यं प्रति, तमसः ज्योतिः प्रति, मृत्योः अमृतत्वं प्रति मां नय — इति उपनिषदः त्रिविधा प्रार्थना।",
       source:     "Bṛhadāraṇyaka Upaniṣad 1.3.28",
     },
     {
@@ -700,6 +711,7 @@ const CV = {
       iast:       "Satyameva jayate nānṛtam.",
       meaning_en: "Truth alone triumphs — not falsehood.",
       meaning_te: "సత్యమే జయిస్తుంది — అసత్యం కాదు.",
+      meaning_sa: "अन्ततः सत्यस्य एव जयः भवति, असत्यस्य न। सत्यमेव परमं बलम्।",
       source:     "Muṇḍakopaniṣad 3.1.6",
     },
     {
@@ -708,6 +720,7 @@ const CV = {
       iast:       "Ahiṃsā paramo dharmaḥ.",
       meaning_en: "Non-violence is the highest dharma.",
       meaning_te: "అహింస అత్యుత్తమ ధర్మం.",
+      meaning_sa: "सर्वेषां धर्माणां मध्ये अहिंसा उत्तमा। प्राणिमात्रेषु पीडाविरहणमेव परमधर्मः।",
       source:     "Mahābhārata, Ādi Parva 11.13",
     },
     {
@@ -716,6 +729,7 @@ const CV = {
       iast:       "Yogaḥ karmasu kauśalam.",
       meaning_en: "Yoga is excellence in action.",
       meaning_te: "కర్మలలో నైపుణ్యమే యోగం.",
+      meaning_sa: "कर्मसु कुशलता, दक्षता, फलासक्तिरहितं च कर्म — एतदेव योगः।",
       source:     "Bhagavad Gītā 2.50",
     },
     {
@@ -724,6 +738,7 @@ const CV = {
       iast:       "Tat tvam asi.",
       meaning_en: "Thou art That — the great Vedāntic equation identifying the individual self with universal Brahman.",
       meaning_te: "తత్ — అది; త్వమ్ — నీవు; అసి — ఉన్నావు. జీవాత్మయే పరమాత్మ అనే వేదాంత మహావాక్యం.",
+      meaning_sa: "तत् इत्युक्तं परब्रह्म, त्वम् इत्युक्तः जीवात्मा — तयोः अभेदः एव वेदान्तस्य परममहावाक्यम्।",
       source:     "Chāndogya Upaniṣad 6.8.7",
     },
     {
@@ -732,6 +747,7 @@ const CV = {
       iast:       "Sarve bhavantu sukhinaḥ, sarve santu nirāmayāḥ,\nsarve bhadrāṇi paśyantu, mā kaścit duḥkhabhāg bhavet.",
       meaning_en: "May all be happy; may all be free from illness; may all see what is auspicious; may none suffer.",
       meaning_te: "అందరూ సుఖంగా ఉండుగాక; అందరూ నిరోగంగా ఉండుగాక; అందరూ శుభాన్ని చూచుగాక; ఎవరికీ దుఃఖం కలుగుగాక.",
+      meaning_sa: "सर्वे जनाः सुखिनः भवन्तु, रोगरहिताः भवन्तु, शुभं पश्यन्तु, कोऽपि दुःखं मा अनुभवतु — इति विश्वकल्याणकामना।",
       source:     "Bṛhadāraṇyaka Upaniṣad (traditional benediction)",
     },
     {
@@ -740,6 +756,7 @@ const CV = {
       iast:       "Na jāyate mriyate vā kadācin nāyaṃ bhūtvā bhavitā vā na bhūyaḥ,\najo nityaḥ śāśvato'yaṃ purāṇo na hanyate hanyamāne śarīre.",
       meaning_en: "The soul is never born nor dies; it was not, is not, and will not come into being. Unborn, eternal, ever-existing, primeval — it does not perish when the body is slain.",
       meaning_te: "ఆత్మ ఎన్నటికీ జన్మించదు, మరణించదు; అది జన్మరహితం, నిత్యం, శాశ్వతం, పురాతనం — శరీరం నాశనమైనా ఆత్మ నశించదు.",
+      meaning_sa: "आत्मा न जायते न म्रियते च कदापि। सः अजः, नित्यः, शाश्वतः, पुरातनः। शरीरस्य नाशेऽपि आत्मनः नाशः न जायते।",
       source:     "Bhagavad Gītā 2.20",
     },
     {
@@ -748,6 +765,7 @@ const CV = {
       iast:       "Ekaṃ sad viprā bahudhā vadanti.",
       meaning_en: "Truth is one; the wise call it by many names.",
       meaning_te: "సత్యం ఒక్కటే; విద్వాంసులు దాన్ని వేర్వేరు పేర్లతో పిలుస్తారు.",
+      meaning_sa: "परमसत्यं एकमेव। तमेव विद्वांसः इन्द्रः, मित्रः, वरुणः इत्यादिभिः नानानामभिः अभिदधति।",
       source:     "Ṛgveda 1.164.46",
     },
     {
@@ -756,6 +774,7 @@ const CV = {
       iast:       "Śraddhāvān labhate jñānam.",
       meaning_en: "The faithful and sincere seeker attains knowledge.",
       meaning_te: "శ్రద్ధ కలిగినవాడే జ్ఞానాన్ని పొందుతాడు.",
+      meaning_sa: "यस्य चित्ते श्रद्धा अस्ति, सः एव ज्ञानम् अवाप्नोति। श्रद्धाविहीनः ज्ञानं न लभते।",
       source:     "Bhagavad Gītā 4.39",
     },
     {
@@ -764,6 +783,7 @@ const CV = {
       iast:       "Lokāḥ samastāḥ sukhino bhavantu.",
       meaning_en: "May all the worlds be happy.",
       meaning_te: "సమస్త లోకాలు సుఖంగా ఉండుగాక.",
+      meaning_sa: "समस्तेषु लोकेषु सर्वे प्राणिनः सुखिनः भवन्तु — इति वैदिकी विश्वकल्याणप्रार्थना।",
       source:     "Traditional Vedic benediction",
     },
     {
@@ -772,6 +792,7 @@ const CV = {
       iast:       "Kṣamā balam aśaktānāṃ śastraṃ śaktimatāṃ kṣamā,\nkṣamā vaśīkṛtirloke kṣamayā kiṃ na sādhyate.",
       meaning_en: "Forgiveness is the strength of the powerless; forgiveness is the weapon of the powerful. Forgiveness governs the world — what cannot be achieved through forgiveness?",
       meaning_te: "క్షమ అశక్తుల బలం; క్షమ బలవంతుల ఆయుధం. క్షమ ప్రపంచాన్ని వశపరచుకునే మార్గం — క్షమతో సాధించలేనిది ఏముంది?",
+      meaning_sa: "अशक्तानां क्षमा बलम्, शक्तिमतां क्षमा शस्त्रम्। क्षमया लोकः वशीक्रियते। क्षमया किं किम् अप्रापणीयम् अस्ति?",
       source:     "Mahābhārata, Udyoga Parva 33.31",
     },
     {
@@ -780,6 +801,7 @@ const CV = {
       iast:       "Santoṣaḥ paramaṃ sukham.",
       meaning_en: "Contentment is the highest happiness.",
       meaning_te: "తృప్తి అత్యుత్తమ సుఖం.",
+      meaning_sa: "सन्तोषः — यत् लब्धं तेन तृप्तिः — एतदेव परमं सुखम्। अतृप्तिः दुःखस्य मूलकारणम्।",
       source:     "Mahābhārata, Śānti Parva",
     },
     {
@@ -788,6 +810,7 @@ const CV = {
       iast:       "Svādhyāyān mā pramadaḥ.",
       meaning_en: "Never be negligent in self-study.",
       meaning_te: "స్వాధ్యాయంలో ఎన్నడూ అశ్రద్ధ చేయకు.",
+      meaning_sa: "स्वाध्याये — शास्त्राणां स्वयं पठने पाठने च — कदापि प्रमादः मा भवतु। तैत्तिरीयोपनिषदि गुरोः एषः आदेशः।",
       source:     "Taittirīya Upaniṣad 1.11.1",
     },
     {
@@ -796,6 +819,7 @@ const CV = {
       iast:       "Satyaṃ vada. Dharmaṃ cara.",
       meaning_en: "Speak truth. Follow dharma — the two-fold counsel at the heart of the Vedic graduate's departure into the world.",
       meaning_te: "సత్యం పలుకు. ధర్మం ఆచరించు — వేద విద్యార్థి గృహస్థాశ్రమంలో ప్రవేశించేటప్పుడు గురువు ఇచ్చే ద్విముఖ ఆదేశం.",
+      meaning_sa: "सत्यं वद, धर्मं च आचर — इति वेदाध्ययनसमाप्तौ गुरुः शिष्यं गृहस्थाश्रमं प्रति प्रेषयन् ददाति द्विविधमुपदेशम्।",
       source:     "Taittirīya Upaniṣad 1.11.1",
     },
     {
@@ -804,6 +828,7 @@ const CV = {
       iast:       "Caraiveti caraiveti.",
       meaning_en: "Keep moving, keep moving — the Vedic exhortation never to stagnate; forward motion is the nature of life itself.",
       meaning_te: "నడుచుచుండుము, నడుచుచుండుము — ఆగిపోవద్దని వేద ప్రోత్సాహం; ముందుకు సాగడమే జీవితం యొక్క స్వభావం.",
+      meaning_sa: "चर, चर — इति वेदः पुनः पुनः प्रेरयति। स्थगनं मृत्युसमम्; निरन्तरगतिशीलता एव जीवनस्य स्वभावः।",
       source:     "Aitareya Brāhmaṇa 33.3 (Ṛgveda)",
     },
   ],
