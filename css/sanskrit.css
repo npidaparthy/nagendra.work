@@ -175,6 +175,29 @@
   margin-bottom: 0;
 }
 
+/* Script picker pills */
+.script-picker {
+  display: flex;
+  gap: 6px;
+}
+.script-btn {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+.script-btn:hover { color: var(--text); border-color: var(--accent); }
+.script-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
 .quotes-pagination {
   display: flex;
   align-items: center;
@@ -283,17 +306,25 @@
 .quote-script.telugu {
   font-family: 'Noto Sans Telugu', serif;
   font-size: 1rem;
-  color: var(--text-muted);
+  color: var(--text);
   line-height: 1.7;
 }
 
 .quote-iast {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.78rem;
-  color: var(--accent);
+  font-size: 0.88rem;
+  color: var(--text);
   font-style: italic;
   line-height: 1.6;
 }
+
+/* Show only the active script — controlled by data-script on .js-quotes-grid */
+.js-quotes-grid .quote-script,
+.js-quotes-grid .quote-iast { display: none; }
+
+.js-quotes-grid[data-script="devanagari"] .quote-script.devanagari { display: block; }
+.js-quotes-grid[data-script="telugu"]     .quote-script.telugu     { display: block; }
+.js-quotes-grid[data-script="iast"]       .quote-iast              { display: block; }
 
 /* Quote back */
 .quote-meaning {

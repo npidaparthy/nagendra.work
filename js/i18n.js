@@ -209,6 +209,11 @@ function applyLanguage(lang) {
   // Update <html lang> attribute
   const langAttr = { en: 'en', te: 'te', sa: 'sa' };
   document.documentElement.lang = langAttr[lang] || 'en';
+
+  // Sync quote script picker to language default
+  if (typeof window._quotesSetScript === 'function') {
+    window._quotesSetScript(lang);
+  }
 }
 
 // ── Update content rendered from cv-data.js ──────────────────────

@@ -211,20 +211,56 @@ function renderQuotes() {
 
   const parent = wrap.parentElement;
 
-  // Top: pagination + references button
+  // Set default script on container based on current language
+  function defaultScriptForLang(lang) {
+    return lang === 'te' ? 'telugu' : 'devanagari';
+  }
+  if (!wrap.dataset.script) {
+    wrap.dataset.script = defaultScriptForLang(
+      typeof currentLang === 'function' ? currentLang() : 'en'
+    );
+  }
+
+  // Top: script picker + pagination + references button
   let topBar = document.querySelector('.js-quotes-topbar');
   if (!topBar) {
     topBar = document.createElement('div');
     topBar.className = 'quotes-topbar js-quotes-topbar';
     topBar.innerHTML = `
       <div class="quotes-pagination js-quotes-pager-top"></div>
+      <div class="script-picker">
+        <button class="script-btn" data-script="devanagari" title="Devanagari">देव</button>
+        <button class="script-btn" data-script="telugu"     title="Telugu">తె</button>
+        <button class="script-btn" data-script="iast"       title="IAST romanisation">IAST</button>
+      </div>
       <button class="glossary-link js-glossary-btn" data-i18n="btn_references">
         📖 Source Texts &amp; References
       </button>`;
     parent.insertBefore(topBar, wrap);
     topBar.querySelector('.js-glossary-btn').addEventListener('click', () =>
       document.getElementById('glossary-modal').classList.add('open'));
+
+    // Script pill click handler
+    topBar.querySelectorAll('.script-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        wrap.dataset.script = btn.dataset.script;
+        updateScriptPills();
+      });
+    });
   }
+
+  function updateScriptPills() {
+    topBar.querySelectorAll('.script-btn').forEach(btn =>
+      btn.classList.toggle('active', btn.dataset.script === wrap.dataset.script)
+    );
+  }
+  updateScriptPills();
+
+  // Expose so i18n can call it on language switch
+  window._quotesSetScript = function(lang) {
+    wrap.dataset.script = defaultScriptForLang(lang);
+    updateScriptPills();
+  };
 
   // Bottom: pagination only
   let pagerBottom = document.querySelector('.js-quotes-pager-bottom');
