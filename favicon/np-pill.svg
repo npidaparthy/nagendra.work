@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- Pill / stadium badge — forest green -->
+  <rect width="64" height="64" rx="14" fill="#0d1a0f"/>
+  <rect x="6" y="18" width="52" height="28" rx="14" fill="#16a34a"/>
+  <text x="32" y="37" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="900" font-size="18" fill="white" letter-spacing="3">NP</text>
+</svg>

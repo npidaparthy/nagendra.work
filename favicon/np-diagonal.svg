@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- Diagonal colour split — orange top-left, blue bottom-right -->
+  <defs><clipPath id="c"><rect width="64" height="64" rx="14"/></clipPath></defs>
+  <rect width="64" height="64" rx="14" fill="#0f0f1e"/>
+  <polygon points="0,0 64,0 0,64" fill="#f97316" clip-path="url(#c)"/>
+  <polygon points="64,0 64,64 0,64" fill="#1d4ed8" clip-path="url(#c)"/>
+  <text x="32" y="43" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="900" font-size="28" fill="white" letter-spacing="1">NP</text>
+</svg>

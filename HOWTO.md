@@ -377,6 +377,58 @@ All "Download CV" buttons across the site point to this path automatically.
 
 ---
 
+## Favicon — Rotating NP Logos
+
+The browser tab shows a randomly picked favicon on every page load.
+There are **24 designs** — one for each syllable of the Gāyatrī Mantra.
+
+All SVG files live in `favicon/`. The picker is a tiny inline `<script>` in `<head>`:
+
+```js
+var favicons = ['np-serif', 'np-gradient', /* ... */ ];
+var pick = favicons[Math.floor(Math.random() * favicons.length)];
+link.href = '/favicon/' + pick + '.svg';
+```
+
+### Adding a new favicon design
+
+1. Create `favicon/np-yourname.svg` — use a `64×64` viewBox; keep it legible at 16px
+2. Add `'np-yourname'` to the `favicons` array in `index.html` (inside the `<script>` in `<head>`)
+3. Document it in `favicon/favicon.md`
+
+### Current designs (24 total)
+
+| # | File | Style | Colour |
+|---|------|-------|--------|
+| 1 | `np-serif` | Solid square, serif font | Indigo |
+| 2 | `np-gradient` | Rounded square gradient | Orange → Rose |
+| 3 | `np-dark-border` | Dark + border outline | Teal |
+| 4 | `np-circle` | Circle | Amber |
+| 5 | `np-split-tone` | Split N·P letters | Emerald + Cyan |
+| 6 | `np-devanagari` | Devanagari न + Latin P | Saffron |
+| 7 | `np-hexagon` | Hexagon shape | Rose |
+| 8 | `np-stacked` | N over P stacked | Gold |
+| 9 | `np-interlocked` | RF-style overlapping letters | Navy + Indigo |
+| 10 | `np-shield` | Heraldic shield | Royal Navy |
+| 11 | `np-diagonal` | Diagonal colour split | Orange + Blue |
+| 12 | `np-pill` | Pill / stadium badge | Forest Green |
+| 13 | `np-diamond` | Rotated square | Crimson |
+| 14 | `np-retro` | Dashed ring badge | Amber Vintage |
+| 15 | `np-dev` | `<NP/>` code tag | Cyan on Black |
+| 16 | `np-outlined` | Hollow stroke letters | White on Black |
+| 17 | `np-coral` | Solid square | Coral |
+| 18 | `np-pink-gradient` | Gradient | Pink → Violet |
+| 19 | `np-navy-serif` | Solid square, serif | Deep Navy + Cream |
+| 20 | `np-ocean` | Circle gradient | Teal → Blue |
+| 21 | `np-hairline` | Ultra-thin letters | Near-white on Black |
+| 22 | `np-sanskrit-border` | ॐ dashed border | Gold |
+| 23 | `np-metallic` | Metallic text gradient | Brushed Gold |
+| 24 | `np-slash` | Slash divider | White + Indigo |
+
+Full design notes and inspiration in `favicon/favicon.md`.
+
+---
+
 ## Local Preview
 
 The site is plain HTML/CSS/JS — no build step, no npm. A simple Python HTTP server is all you need.

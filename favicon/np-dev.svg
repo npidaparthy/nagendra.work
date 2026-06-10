@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- Dev / tech — <NP/> in monospace cyan, nods to DevOps identity -->
+  <rect width="64" height="64" rx="14" fill="#020c10"/>
+  <text x="32" y="42" text-anchor="middle" font-family="'Courier New',monospace" font-weight="700" font-size="15" fill="#06b6d4" letter-spacing="0">&lt;NP/&gt;</text>
+</svg>

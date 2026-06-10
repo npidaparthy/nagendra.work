@@ -8,6 +8,25 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Telugu:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Favicon: pick one randomly from /favicon/ on each page load -->
+  <script>
+    (function(){
+      // 24 designs — one for each syllable of the Gāyatrī mantra
+      var favicons = [
+        'np-serif','np-gradient','np-dark-border','np-circle',
+        'np-split-tone','np-devanagari','np-hexagon','np-stacked',
+        'np-interlocked','np-shield','np-diagonal','np-pill',
+        'np-diamond','np-retro','np-dev','np-outlined',
+        'np-coral','np-pink-gradient','np-navy-serif','np-ocean',
+        'np-hairline','np-sanskrit-border','np-metallic','np-slash'
+      ];
+      var pick = favicons[Math.floor(Math.random() * favicons.length)];
+      var link = document.createElement('link');
+      link.rel = 'icon'; link.type = 'image/svg+xml';
+      link.href = '/favicon/' + pick + '.svg';
+      document.head.appendChild(link);
+    })();
+  </script>
   <!-- Load data + theme before styles to avoid flash -->
   <script src="js/cv-data.js"></script>
   <script src="js/theme.js"></script>

@@ -16,6 +16,7 @@ Available checks (pass as argument):
     skills      Skill categories and tag counts
     awards      Award groups and item counts
     assets      Check photo + PDF exist on disk
+    favicons    Verify all 24 favicon SVG files exist in favicon/
     flags       Key boolean flags (available, current jobs)
     hcjp        Scan for any banned/removed strings
     socials     Personal URLs (github, youtube, linkedin)
@@ -237,6 +238,39 @@ def check_assets():
         ok('No placeholder gallery images')
 
 
+def check_favicons():
+    """Verify all 24 favicon SVG files exist in favicon/."""
+    section('FAVICONS — 24 NP designs (24 = Gāyatrī akṣaras)')
+    favicon_dir = os.path.join(ROOT, 'favicon')
+    expected = [
+        'np-serif', 'np-gradient', 'np-dark-border', 'np-circle',
+        'np-split-tone', 'np-devanagari', 'np-hexagon', 'np-stacked',
+        'np-interlocked', 'np-shield', 'np-diagonal', 'np-pill',
+        'np-diamond', 'np-retro', 'np-dev', 'np-outlined',
+        'np-coral', 'np-pink-gradient', 'np-navy-serif', 'np-ocean',
+        'np-hairline', 'np-sanskrit-border', 'np-metallic', 'np-slash',
+    ]
+    missing = []
+    for name in expected:
+        path = os.path.join(favicon_dir, name + '.svg')
+        if os.path.exists(path):
+            ok(f'{name}.svg')
+        else:
+            fail(f'{name}.svg — MISSING')
+            missing.append(name)
+    if not missing:
+        ok(f'All {len(expected)} favicon SVGs present')
+    else:
+        warn(f'{len(missing)} missing: {missing}')
+
+    # Also check that index.html references all of them
+    missing_from_html = [n for n in expected if f"'{n}'" not in idx and f'"{n}"' not in idx]
+    if missing_from_html:
+        warn(f'{len(missing_from_html)} not referenced in index.html: {missing_from_html}')
+    else:
+        ok(f'All {len(expected)} designs referenced in index.html picker')
+
+
 def check_flags():
     """Check key boolean flags."""
     section('FLAGS — key settings')
@@ -299,6 +333,7 @@ CHECKS = {
     'skills':     check_skills,
     'awards':     check_awards,
     'assets':     check_assets,
+    'favicons':   check_favicons,
     'flags':      check_flags,
     'hcjp':       check_hcjp,
     'socials':    check_socials,
