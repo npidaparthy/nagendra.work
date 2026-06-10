@@ -72,6 +72,7 @@ def check_summary():
         'Sanskrit certifications': len(re.findall(r'name:\s*["\'].*?["\'],\s*\n\s*institution:', cv)),
         'Texts studied':         len(re.findall(r'en:\s*["\']', cv)),
         'Quotes (subhāṣitāni)':  len(re.findall(r'devanagari:', cv)),
+        'Sanskrit meanings':     len(re.findall(r'meaning_sa:', cv)),
         'Source references':     len(re.findall(r'source:\s*["\']', cv)),
     }
     for label, count in counts.items():
