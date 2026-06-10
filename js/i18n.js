@@ -299,7 +299,7 @@ function updateDynamicContent(lang) {
   // Quote meanings
   document.querySelectorAll('.quote-meaning[data-quote-idx]').forEach(el => {
     const idx = +el.dataset.quoteIdx;
-    const q = CV.quotes[idx];
+    const q = (window._quotesOrdered || CV.quotes)[idx];
     if (q) el.textContent = q['meaning' + suffix] || q.meaning_en;
   });
 

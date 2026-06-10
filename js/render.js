@@ -209,6 +209,11 @@ function renderQuotes() {
   const wrap = document.querySelector('.js-quotes-grid');
   if (!wrap || !CV.quotes?.length) return;
 
+  // Shuffle once per page load so each visit shows a different order.
+  // Exposed as window._quotesOrdered so i18n.js can look up by the same index.
+  const quotes = [...CV.quotes].sort(() => Math.random() - 0.5);
+  window._quotesOrdered = quotes;
+
   const parent = wrap.parentElement;
 
   // Set default script on container based on current language
@@ -279,10 +284,10 @@ function renderQuotes() {
 
   function showPage(page) {
     _quotePage = page;
-    const total = CV.quotes.length;
+    const total = quotes.length;
     const totalPages = Math.ceil(total / QUOTES_PER_PAGE);
     const start = page * QUOTES_PER_PAGE;
-    const slice = CV.quotes.slice(start, start + QUOTES_PER_PAGE);
+    const slice = quotes.slice(start, start + QUOTES_PER_PAGE);
 
     wrap.innerHTML = slice.map((q, j) => {
       const i = start + j;
@@ -319,7 +324,7 @@ function renderQuotes() {
       const suffix = lang === 'en' ? '' : '_' + lang;
       wrap.querySelectorAll('.quote-meaning[data-quote-idx]').forEach(el => {
         const idx = +el.dataset.quoteIdx;
-        const q = CV.quotes[idx];
+        const q = quotes[idx];
         if (q) el.textContent = q['meaning' + suffix] || q.meaning_en;
       });
     }
