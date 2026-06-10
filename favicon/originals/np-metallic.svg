@@ -7,7 +7,6 @@
       <stop offset="100%" stop-color="#92400e"/>
     </linearGradient>
   </defs>
-  <!-- Rich burgundy bg makes gold text pop -->
-  <rect width="64" height="64" rx="14" fill="#4a0e1a"/>
+  <rect width="64" height="64" rx="14" fill="#0a0805"/>
   <text x="32" y="45" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="32" fill="url(#g)" letter-spacing="-1">NP</text>
 </svg>

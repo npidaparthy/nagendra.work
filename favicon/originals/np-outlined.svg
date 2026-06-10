@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-  <!-- Hollow outlined letters — white stroke on deep violet -->
-  <rect width="64" height="64" rx="14" fill="#4c1d95"/>
+  <!-- Hollow outlined letters — white stroke on black -->
+  <rect width="64" height="64" rx="14" fill="#080808"/>
   <text x="32" y="44" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="900" font-size="30"
-    fill="none" stroke="white" stroke-width="2.2" paint-order="stroke">NP</text>
+    fill="none" stroke="white" stroke-width="1.5" paint-order="stroke">NP</text>
 </svg>

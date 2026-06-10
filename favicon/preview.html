@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>24 NP Favicons · Gāyatrī Syllables</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0a0a0a;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    padding: 48px 40px 56px;
+    min-width: 900px;
+  }
+  h1 {
+    text-align: center;
+    letter-spacing: 0.22em;
+    font-size: 12px;
+    font-weight: 400;
+    color: #555;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 32px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+  }
+  .badge {
+    position: absolute;
+    top: -6px;
+    right: calc(50% - 56px);
+    background: #333;
+    color: #ccc;
+    font-size: 10px;
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 2px 6px;
+    line-height: 1.4;
+  }
+  .item img {
+    width: 88px;
+    height: 88px;
+  }
+  .name {
+    font-size: 12px;
+    font-weight: 700;
+    color: #eee;
+    text-align: center;
+    letter-spacing: 0.01em;
+  }
+  .colour {
+    font-size: 10.5px;
+    color: #666;
+    text-align: center;
+    line-height: 1.4;
+  }
+</style>
+</head>
+<body>
+<h1>24 NP Favicons · One Per Gāyatrī Syllable</h1>
+<div class="grid" id="grid"></div>
+
+<script>
+const designs = [
+  { name: 'Serif',           colour: 'Indigo',           file: 'np-serif' },
+  { name: 'Gradient',        colour: 'Orange→Rose',      file: 'np-gradient' },
+  { name: 'Dark Border',     colour: 'Teal',             file: 'np-dark-border' },
+  { name: 'Circle',          colour: 'Amber',            file: 'np-circle' },
+  { name: 'Split Tone',      colour: 'Emerald+Cyan',     file: 'np-split-tone' },
+  { name: 'Devanagari',      colour: 'Saffron',          file: 'np-devanagari' },
+  { name: 'Hexagon',         colour: 'Rose',             file: 'np-hexagon' },
+  { name: 'Stacked',         colour: 'Gold',             file: 'np-stacked' },
+  { name: 'Interlocked',     colour: 'Navy+Indigo',      file: 'np-interlocked' },
+  { name: 'Shield',          colour: 'Royal Navy',       file: 'np-shield' },
+  { name: 'Diagonal',        colour: 'Orange+Blue',      file: 'np-diagonal' },
+  { name: 'Pill',            colour: 'Forest Green',     file: 'np-pill' },
+  { name: 'Diamond',         colour: 'Crimson',          file: 'np-diamond' },
+  { name: 'Retro',           colour: 'Amber Vintage',    file: 'np-retro' },
+  { name: 'Dev',             colour: 'Cyan',             file: 'np-dev' },
+  { name: 'Outlined',        colour: 'White Stroke',     file: 'np-outlined' },
+  { name: 'Coral',           colour: 'Rose-Red',         file: 'np-coral' },
+  { name: 'Pink Gradient',   colour: 'Pink→Violet',      file: 'np-pink-gradient' },
+  { name: 'Navy Serif',      colour: 'Yankees',          file: 'np-navy-serif' },
+  { name: 'Ocean',           colour: 'Teal→Blue',        file: 'np-ocean' },
+  { name: 'Hairline',        colour: 'Minimal',          file: 'np-hairline' },
+  { name: 'Sanskrit ॐ',      colour: 'Gold',             file: 'np-sanskrit-border' },
+  { name: 'Metallic',        colour: 'Brushed Gold',     file: 'np-metallic' },
+  { name: 'Slash',           colour: 'Indigo Divider',   file: 'np-slash' },
+];
+
+const grid = document.getElementById('grid');
+designs.forEach((d, i) => {
+  grid.innerHTML += `
+    <div class="item">
+      <span class="badge">${i + 1}</span>
+      <img src="${d.file}.svg" alt="${d.name}">
+      <div class="name">${d.name}</div>
+      <div class="colour">${d.colour}</div>
+    </div>`;
+});
+</script>
+</body>
+</html>
