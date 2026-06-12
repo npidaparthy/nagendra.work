@@ -1224,7 +1224,7 @@ footer p {
   .contact-card { flex-direction: row; min-width: unset; }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .nav-links, .btn-nav { display: none; }
   .nav-hamburger { display: flex; }
   .section { padding: 70px 0; }
@@ -1241,7 +1241,7 @@ footer p {
 .mobile-bottom-bar {
   display: none; /* hidden on desktop */
 }
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .mobile-bottom-bar {
     display: flex;
     position: fixed;
@@ -1313,6 +1313,40 @@ footer p {
   color: var(--text-muted);
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+.mobile-lang-switcher {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+.mobile-lang-switcher .lang-btn {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--text-muted);
+  border-radius: 8px;
+  padding: 6px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.mobile-lang-switcher .lang-btn:hover,
+.mobile-lang-switcher .lang-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+[data-mode="light"] .mobile-lang-switcher .lang-btn {
+  background: rgba(0,0,0,0.06);
+  border-color: rgba(0,0,0,0.15);
+  color: var(--text-muted);
+}
+[data-mode="light"] .mobile-lang-switcher .lang-btn:hover,
+[data-mode="light"] .mobile-lang-switcher .lang-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
 }
 
 /* ── Light-mode contrast fixes ──────────────────────────────────

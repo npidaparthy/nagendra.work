@@ -96,12 +96,21 @@ const mobileMenu = document.createElement('div');
 mobileMenu.className = 'mobile-menu';
 mobileMenu.innerHTML = `
   <button class="mobile-menu-close" aria-label="Close">✕</button>
-  <a href="#about">About</a>
-  <a href="#experience">Experience</a>
-  <a href="#skills">Skills</a>
-  <a href="#awards">Awards</a>
-  <a href="#contact">Contact</a>
-  <a href="#" class="js-cv-link" download style="color:#a5b4fc">Download CV ↓</a>
+  <a href="#about"       data-i18n="nav_about">About</a>
+  <a href="#experience"  data-i18n="nav_experience">Experience</a>
+  <a href="#skills"      data-i18n="nav_skills">Skills</a>
+  <a href="#awards"      data-i18n="nav_awards">Awards</a>
+  <a href="#projects"    data-i18n="nav_projects">Projects</a>
+  <a href="#gallery"     data-i18n="nav_gallery">Gallery</a>
+  <a href="#sanskrit"    data-i18n="nav_sanskrit">Sanskrit</a>
+  <a href="#quotes"      data-i18n="nav_quotes">Quotes</a>
+  <a href="#contact"     data-i18n="nav_contact">Contact</a>
+  <a href="#" class="js-cv-link" download style="color:#a5b4fc" data-i18n="nav_download">Download CV ↓</a>
+  <div class="mobile-lang-switcher">
+    <button class="lang-btn" data-lang="en" title="English">EN</button>
+    <button class="lang-btn" data-lang="te" title="తెలుగు">తె</button>
+    <button class="lang-btn" data-lang="sa" title="संस्कृतम्">सं</button>
+  </div>
 `;
 document.body.appendChild(mobileMenu);
 
@@ -109,6 +118,14 @@ document.body.appendChild(mobileMenu);
 const mobileCvLink = mobileMenu.querySelector('.js-cv-link');
 if (mobileCvLink && CV?.personal?.cvPdf) mobileCvLink.href = CV.personal.cvPdf;
 
-hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+// Language buttons in mobile menu — delegate to same applyLanguage used by desktop switcher
+mobileMenu.querySelectorAll('.lang-btn').forEach(btn =>
+  btn.addEventListener('click', () => {
+    if (typeof applyLanguage === 'function') applyLanguage(btn.dataset.lang);
+  })
+);
+
+// Toggle open/close on hamburger click (was add-only — couldn't close)
+hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
 mobileMenu.querySelector('.mobile-menu-close').addEventListener('click', () => mobileMenu.classList.remove('open'));
 mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
